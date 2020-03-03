@@ -1,0 +1,148 @@
+@import '../../../resources/styles/fonts.scss';
+
+.time-chart-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 100px;
+    .time-chart-filter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        .party-colors {
+            display: flex;
+            margin-left: 20px;
+            align-items: center;
+            justify-content: center;
+            .party-color-wrapper {
+                border-radius: 50%;
+                padding: 8px 10px 15px 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+                width: 45px;
+                height: 45px;
+                margin: 0 10px;
+                opacity: 0.6;
+                text-align: center;
+                &.active {
+                    box-shadow: 0 0 4px rgba(0, 0, 0, 0.788);
+                    transform: scale(1.1);
+                }
+                .party-color {
+                    margin: 0 auto;
+                    color: black;
+                    height: 5px;
+                    width: 16px;
+                }
+                p {
+                    user-select: none;
+                    margin: 0;
+                    margin-bottom: 4px;
+                }
+            }
+            
+        }
+    }
+    .time-chart {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        svg {
+            cursor: pointer;
+            height: 500px;
+            width: 100%;
+            overflow: visible;  
+            box-shadow : 0px -0px 10000px transparent; /*trick for chrome*/
+            .path {
+                stroke-dasharray: 3000;
+                stroke-dashoffset: 3000;
+                animation: animatePath 2s linear forwards;
+                opacity: 0.6;
+                
+            }
+            .indicator-path {
+                pointer-events: none;
+            }
+            .time-chart-year {
+                font: $font-mono;
+                font-size: 12px;
+                fill: lightgrey;
+                pointer-events: none;
+                user-select: none;
+            }
+            .indicator-circle {
+                pointer-events: none;
+                opacity: 0;
+                transition: opactiy 0.3s;
+                &.shown {
+                    opacity: 1;
+                }
+            }
+        }
+        
+        .month-info {
+            position: absolute;
+            width: 220px;
+            left: 10px;
+            top: -10px;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+            border-radius: 5px;
+            opacity: 0;
+            animation: fadeInMonthInfo 0.5s forwards;
+            color: white;
+            .current-month {
+                text-transform: capitalize;
+            }
+            hr {
+                border: 0.5px solid white;
+            }
+            .party-name-and-percent {
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                line-height: 22px;
+                .party-color {
+                    height: 6px;
+                    width: 6px;
+                    border: 1px solid white;
+                    opacity: 0.9;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                }
+                .party-name {
+                    text-align: right;
+                    width: 130px;
+                    text-transform: capitalize;
+                }
+                .party-percent {
+                    margin-left: 10px; 
+                    font: $font-mono;
+                    font-size: 13px;
+                    line-height: 22px;
+                }
+            }
+           
+        }
+    }
+    
+}
+
+@keyframes animatePath {
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes fadeInMonthInfo {
+    to {
+        opacity: 1
+    }
+}
