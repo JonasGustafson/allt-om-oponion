@@ -1,5 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Home from '../home/Home';
 
 class MainRoutes extends PureComponent {
@@ -9,7 +9,8 @@ class MainRoutes extends PureComponent {
     return (
       <Fragment>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route render={() => <Redirect to="/" />} />
         </Switch>
       </Fragment>
     )

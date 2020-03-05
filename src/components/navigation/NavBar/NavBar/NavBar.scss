@@ -1,0 +1,117 @@
+$navbar-absolute-offset: 700px; 
+
+.navbar {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 150px;
+    width: 100%;
+    z-index: 10;
+    .left-navbar {
+        height: 43px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            
+            cursor: pointer;
+            &.parties-list {
+                .parties {
+                    height: 100%;
+                    padding-bottom: 2px;
+                    box-sizing: border-box;
+                    border-radius: 5px 0 0 5px;
+                    width: 100px;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p {
+                        position: relative;
+                        z-index: 1;
+                        user-select: none;
+                    }
+                    .div-arrow {
+                        position: absolute;
+                        right: 0;
+                        height: 33px;
+                        width: 33px;
+                        border-radius: 5px;
+                        transform: translate(50%, 1px) rotate(45deg);
+                    }
+                    &:hover {
+                        background-color:  rgb(36, 111, 197);
+                        color: white;
+                        .div-arrow {
+                            background-color: rgb(36, 111, 197);
+                        }
+                    }
+                }
+                .party-list {
+                    height: 100%;
+                    padding-left: 0px;
+                    margin-left: 22px;
+                    overflow: hidden;
+                    width: 0;
+                    &.toggled {
+                        width: auto;
+                    }
+                    .party-list-wrapper {
+                        transition: transform 0.3s;
+                        transform: translateX(-110%);
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        &.toggled {
+                            transform: translateX(0);
+                        }
+                        p {
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100%;
+                            width: 46px;
+                            padding: 0 10px;
+                            margin: 0 2px;
+                            border-radius: 4px;
+                            padding-bottom: 2px;
+                            box-sizing: border-box;
+                            opacity: 0.6;
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    &.absolute {
+        height: 100px;
+        position: absolute;
+        top: $navbar-absolute-offset;     
+        @media only screen and (max-width: 600px) {
+            position: fixed;
+            top: 0;
+        }
+    }
+    &.sticky {
+        height: 60px;
+        background-color: white;
+        position: fixed;
+        top: 0; 
+        border-bottom: 2px solid rgb(36, 111, 197);
+    }
+}
+
+:export { 
+    navBarAbsoluteOffset: $navbar-absolute-offset; 
+}

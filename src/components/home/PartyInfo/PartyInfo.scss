@@ -1,0 +1,93 @@
+.party-info-bg {
+    overflow: scroll;
+    top: 0;
+    position: fixed;
+    z-index: 11;
+    height: 100%;
+    width: 100%;
+    min-height: 700px;
+    
+    box-sizing: border-box;
+    padding: 50px;
+    .bg {
+        height: 100%;
+        width: 100%; 
+        background-color: rgba(0, 0, 0, 0.603);
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+    }
+    .party-info-container {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.315);
+        box-sizing: border-box;
+        overflow: scroll;
+        animation: openModal 0.5s forwards;
+        .party-info-hero {
+            display: flex;
+            height: 90%;
+            width: 100%;
+            position: relative;
+            .party-leader {
+                position: relative;
+                width: 500px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                .party-leader-image {
+                    user-select: none;
+                    position: absolute;
+                    width: 450px;
+                    bottom: 0;
+                    z-index: 1;
+                    filter: drop-shadow(-3px 6px 3px rgba(0, 0, 0, 0.288))
+                }
+            }
+            .party-info {
+                padding: 40px;
+                box-sizing: border-box;
+                height: 100%;
+                width: calc(100% - 500px);
+                display: flex;
+                justify-content: center;
+                .party-logo {
+                    display: flex;
+                    align-items: center;
+                    height: 100px;
+                    .party-logo-image {
+                        height: 100%;
+                    }
+                    .party-logo-name {
+                        text-transform: capitalize;
+                        font-size: 40px;
+                        margin-left: 20px;
+                    }
+                   
+                }
+            }
+        }
+        .filler {
+            position: relative;
+            z-index: 2;
+            height: 2000px;
+            p {
+                color: white;
+                position: fixed;
+                right: 0;
+            }
+        }
+    }
+    @keyframes openModal {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        } to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

@@ -3,6 +3,7 @@
 .time-chart-wrapper {
     position: relative;
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 600px;
     width: 100%;
@@ -11,40 +12,44 @@
     margin-top: 100px;
     .time-chart-filter {
         display: flex;
-        align-items: center;
-        margin-bottom: 50px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        
+        .time-filter {
+           display: flex;
+           margin-bottom: 30px;
+        }
         .party-colors {
             display: flex;
-            margin-left: 20px;
             align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
             .party-color-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 border-radius: 50%;
-                padding: 8px 10px 15px 10px;
                 box-sizing: border-box;
                 cursor: pointer;
-                width: 45px;
-                height: 45px;
-                margin: 0 10px;
-                opacity: 0.6;
+                width: 42px;
+                height: 42px;
+                margin: 0 9px;
+                margin-bottom: 30px;
                 text-align: center;
+                opacity: 0.5;
+                &:hover {
+                    opacity: 1;
+                }
                 &.active {
-                    box-shadow: 0 0 4px rgba(0, 0, 0, 0.788);
+                    opacity: 1;
+                    box-shadow: 0 0 3px rgba(0, 0, 0, 0.788);
                     transform: scale(1.1);
                 }
-                .party-color {
-                    margin: 0 auto;
-                    color: black;
-                    height: 5px;
-                    width: 16px;
-                }
-                p {
+                .party-logo {
+                    height: 50%;
                     user-select: none;
-                    margin: 0;
-                    margin-bottom: 4px;
                 }
             }
-            
         }
     }
     .time-chart {
@@ -69,8 +74,8 @@
                 pointer-events: none;
             }
             .time-chart-year {
-                font: $font-mono;
-                font-size: 12px;
+                font: $font-body-light;
+                font-size: 14px;
                 fill: lightgrey;
                 pointer-events: none;
                 user-select: none;
@@ -124,7 +129,7 @@
                 }
                 .party-percent {
                     margin-left: 10px; 
-                    font: $font-mono;
+                    font: $font-body-light;
                     font-size: 13px;
                     line-height: 22px;
                 }

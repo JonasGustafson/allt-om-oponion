@@ -4,10 +4,9 @@
 
 	width: 100%;
 	min-width: 313px;
-	height: 600px;
+	height: 400px;
 	box-sizing: border-box;
 	padding: 0 10%;
-	background-color: white;
 	
 	.party-chart {
 		display: flex;
@@ -31,7 +30,7 @@
 				user-select: none;
 				pointer-events: none;
 				z-index: 1;
-				font: $font-mono;
+				font: $font-body-light;
 				font-size: 13px;
 			
 			}
