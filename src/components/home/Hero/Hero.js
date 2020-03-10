@@ -11,7 +11,7 @@ class Hero extends Component {
     render() {
         return (
             <div className="hero">
-                <h1>Välkommen, här finner du allt om Sveriges riksdags opinion</h1>
+                <h1>Välkommen, här finner du allt om Sveriges väljaropinion</h1>
                 <h3>Läget från opinionsundersökningar {helper.convertYearMonth(this.props.latestUpdate)}</h3>
                 <PartyChart togglePartyModal={this.props.togglePartyModal}/>
             </div>

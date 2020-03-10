@@ -2,8 +2,6 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import logo from '../../../../resources/imgs/logo.png';
-
 import styles from './NavBar.scss';
 
 class NavBar extends PureComponent {
@@ -56,12 +54,12 @@ class NavBar extends PureComponent {
           <li className="parties-list">
             <div className="parties" onClick={this.toggleParties}>
               <div className="div-arrow" />
-              <p>Välj Parti</p>
+              <p>Läs mer om</p>
             </div>
             <ul className={"party-list " + (this.state.partiesToggled? 'toggled': '')}>
               <div className={"party-list-wrapper " + (this.state.partiesToggled? 'toggled': '')}>
                 {Object.keys(this.props.parties).map(party => 
-                  <p style={{backgroundColor: this.props.parties[party].color}}>{party}</p>
+                  <p key={party} style={{backgroundColor: this.props.parties[party].color}}>{party}</p>
                 )}
               </div>
             </ul>

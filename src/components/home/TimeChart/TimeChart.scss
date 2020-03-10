@@ -58,7 +58,6 @@
         flex-direction: column;
         align-items: center;
         svg {
-            cursor: pointer;
             height: 500px;
             width: 100%;
             overflow: visible;  
@@ -68,6 +67,7 @@
                 stroke-dashoffset: 3000;
                 animation: animatePath 2s linear forwards;
                 opacity: 0.6;
+                pointer-events: none;
                 
             }
             .indicator-path {
@@ -85,7 +85,7 @@
                 opacity: 0;
                 transition: opactiy 0.3s;
                 &.shown {
-                    opacity: 1;
+                    opacity: 0.6;
                 }
             }
         }
