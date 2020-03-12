@@ -25,11 +25,15 @@ class NavBar extends PureComponent {
     window.removeEventListener("scroll", this.handleScroll);
   }
 
-  handleScroll = () => {
-    if (this.navbar.current && (this.navbar.current.offsetTop < window.scrollY) && (this.state.navbarPosition === 'absolute')) {
+  handleScroll = (e) => {
+    if (window.innerWidth > styles.stickyMediaWidth.split('px')[0]) {
+      if (this.navbar.current && (this.navbar.current.offsetTop < window.scrollY) && (this.state.navbarPosition === 'absolute')) {
+        this.setState({navbarPosition: 'sticky'})
+      } else if ((this.state.navbarAbsoluteOffset > window.scrollY) && (this.state.navbarPosition === 'sticky')) {
+        this.setState({navbarPosition: 'absolute'})
+      }
+    } else {
       this.setState({navbarPosition: 'sticky'})
-    } else if ((this.state.navbarAbsoluteOffset > window.scrollY) && (this.state.navbarPosition === 'sticky')) {
-      this.setState({navbarPosition: 'absolute'})
     }
   }
 

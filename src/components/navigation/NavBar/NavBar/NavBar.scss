@@ -1,4 +1,6 @@
 $navbar-absolute-offset: 700px; 
+$sticky-media-width: 600px;
+
 
 .navbar {
     display: flex;
@@ -98,7 +100,7 @@ $navbar-absolute-offset: 700px;
         height: 100px;
         position: absolute;
         top: $navbar-absolute-offset;     
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: $sticky-media-width) {
             position: fixed;
             top: 0;
         }
@@ -114,4 +116,5 @@ $navbar-absolute-offset: 700px;
 
 :export { 
     navBarAbsoluteOffset: $navbar-absolute-offset; 
+    stickyMediaWidth: $sticky-media-width;
 }

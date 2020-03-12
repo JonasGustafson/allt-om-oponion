@@ -50,7 +50,7 @@ class TimeChart extends PureComponent {
       if (e.target.innerWidth <= 313) {
         this.setState({viewPortWidth: 313})
       } else if (e.target.innerWidth <= 600) {
-        this.setState({viewPortWidth: e.target.innerWidth - 10})
+        this.setState({viewPortWidth: e.target.innerWidth})
       } else if (e.target.innerWidth <= 1250) {
         this.setState({viewPortWidth: 1000 - (1250 - e.target.innerWidth)*0.8})
       } else {
@@ -93,7 +93,6 @@ class TimeChart extends PureComponent {
   
       this.setState({shownMonths}, resolve)
     })
-
   }
 
   setMinMaxPercent = () => {
@@ -329,8 +328,8 @@ class TimeChart extends PureComponent {
             month.endsWith('01')
             ? <React.Fragment>
               <path d="M 1 400 L 1 415" stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
-              <text className="time-chart-year" x="0" y="430" fill="red">{
-                month.substring(0, 4)}
+              <text className="time-chart-year" x="0" y="415" writingMode='vertical-lr'>
+                {month.substring(0, 4)}
               </text>
               </React.Fragment>
             : <path key={month} d="M 1 400 L 1 405" stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
@@ -341,7 +340,7 @@ class TimeChart extends PureComponent {
             month.endsWith('01')
             ? <React.Fragment>
                 <path  d={"M "+((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5) +" 400 L "+((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)+" 415"} stroke="lightgrey" strokeWidth="1.0" fill="none" shapeRendering="crispEdges"/>
-                <text className="time-chart-year" x={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)} y="430">
+                <text className="time-chart-year" x={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)} y="420" writingMode='vertical-lr'>
                   {month.substring(0, 4)}
                 </text>
               </React.Fragment>
@@ -351,9 +350,9 @@ class TimeChart extends PureComponent {
   } 
 
   createPercentageLines = () => {
-
     let percentageSpans = [];
     let i = Math.ceil(this.state.min/this.state.percentageSpan)*this.state.percentageSpan;
+
     while (i < this.state.max) {
       percentageSpans.push(i)
       i += this.state.percentageSpan;
@@ -361,13 +360,16 @@ class TimeChart extends PureComponent {
 
     return percentageSpans.map(percentage => {
       let relativeYPercentage = (400 - (percentage - this.state.min)*this.state.ratio)
+      let isSmallScreen = window.innerWidth <= 600;
+      let textYPosition = isSmallScreen? relativeYPercentage - 4: relativeYPercentage + 4;
+      let textXPosition = isSmallScreen? 5: -35
       return (
         <React.Fragment key={percentage}>
-          <text y={relativeYPercentage + 4} x="-35" fontSize="12" opacity="0.3" fontWeight="100">
+          <text y={textYPosition} x={textXPosition} fontSize="12" opacity="0.3" fontWeight="100">
             {percentage}%
           </text>
           <polyline 
-            points={"-5 "+relativeYPercentage+" 1000 "+relativeYPercentage} 
+            points={"-5 "+relativeYPercentage+" "+this.state.viewPortWidth+" "+relativeYPercentage} 
             strokeWidth="0.5" 
             stroke="black"
             opacity="0.15" 
@@ -416,16 +418,14 @@ class TimeChart extends PureComponent {
                 style={{width: this.state.viewPortWidth, height: '450px'}}>
 
                 <path d={"M 1 0 L 1 400 L "+(this.state.viewPortWidth) +" 400"} stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
+                {this.createPercentageLines()}
                 {Object.keys(this.props.party.parties).map(this.createPartyPath)}
                 {this.state.shownMonths.map(this.createYearLines)}
                 {Object.keys(this.props.party.parties).map(this.createIndicatorCircles)}
-                {this.createPercentageLines()}
                 {this.state.indicatorShown &&
                   <path className="indicator-path" d={"M "+this.state.lineOffset+" 0 L "+this.state.lineOffset+" 400"} stroke="grey" strokeWidth="2" shapeRendering="crispEdges"/>
                 }
-
               </svg>
-
               {this.state.indicatorShown &&
                 <div className="month-info"> 
                   <p className="current-month">{helper.convertYearMonth(this.state.currentMonth)}</p>

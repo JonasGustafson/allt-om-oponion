@@ -1,0 +1,18 @@
+import React from 'react';
+
+export default function Icon({icon, color = '#1d1d1b', width='auto', height='auto', onClick}) {
+    switch(icon) {
+        case 'arrow':    return <Arrow color={color} width={width} height={height} onClick={onClick}/>
+        case 'cross':    return <Cross color={color} width={width} height={height} onClick={onClick}/>
+        case 'feminism': return <Feminism color={color} width={width} height={height} onClick={onClick} />
+        case 'socialism': return <Socialism color={color} width={width} height={height} onClick={onClick} />
+        default:
+            return <React.Fragment/>
+    }
+}
+
+const Arrow    = ({color, width, height, onClick}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.98 149.47" className="icon arrow"    onClick={onClick} style={{fill: color, height: height, width: width}}><g><g><path d="M24.74,146.55l41.38-68.7a6,6,0,0,0,0-6.22L24.74,2.92A6,6,0,0,0,19.58,0H3.29A3.28,3.28,0,0,0,.48,5l42,69.76L.48,144.5a3.28,3.28,0,0,0,2.81,5H19.58A6,6,0,0,0,24.74,146.55Z"/></g></g></svg>
+const Cross    = ({color, width, height, onClick}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.56 67.56"  className="icon cross"    onClick={onClick} style={{fill: color, height: height, width: width}}><g><g><path d="M67,4.42,63.14.54a1.83,1.83,0,0,0-2.6,0L33.78,27.3,7,.54a1.83,1.83,0,0,0-2.6,0L.54,4.42A1.83,1.83,0,0,0,.54,7L27.3,33.78.54,60.54a1.83,1.83,0,0,0,0,2.6L4.42,67A1.83,1.83,0,0,0,7,67L33.78,40.26,60.54,67a1.83,1.83,0,0,0,2.6,0L67,63.14a1.83,1.83,0,0,0,0-2.6L40.26,33.78,67,7A1.83,1.83,0,0,0,67,4.42Z"/></g></g></svg>
+const Feminism = ({color, width, height, onClick}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.16 68.32"  className="icon feminism" onClick={onClick} style={{fill: color, height: height, width: width}}><g><g><path d="M49.16,24.58a24.58,24.58,0,1,0-29.88,24v5.18H13.72A1.75,1.75,0,0,0,12,55.51v4.14a1.74,1.74,0,0,0,1.75,1.74h5.56v5a2,2,0,0,0,2,2h6.62a2,2,0,0,0,2-2v-5h5.56a1.75,1.75,0,0,0,1.75-1.74V55.51a1.75,1.75,0,0,0-1.75-1.75H29.88V48.58A24.59,24.59,0,0,0,49.16,24.58ZM24.58,41.34A16.66,16.66,0,1,1,41.24,24.68,16.66,16.66,0,0,1,24.58,41.34Z"/></g></g></svg>
+const Socialism = ({color, width, height, onClick}) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.25 68.19" className="icon feminism" onClick={onClick} style={{fill: color, height: height, width: width}}><g><g><path d="M25.39,24.44l-7.7,1a.23.23,0,0,0,0,.44l5.57,1.42a.23.23,0,0,0,.25-.07l2.14-2.4A.23.23,0,0,0,25.39,24.44Z"/><path d="M35.56,14.08l-7,10.07c-.94,1.35.26,3.81,1.82,4.33l1.46.5a2.48,2.48,0,0,0,2.65-.72l7.73-8.94a2.47,2.47,0,0,0-.38-3.58l-2.75-2.22A2.46,2.46,0,0,0,35.56,14.08Z"/><path d="M43.79,21.14l-7.55,8.44a1.82,1.82,0,0,0,0,2.45l1.39,1.44a1.81,1.81,0,0,0,2.54.1l8.46-7.67a1.82,1.82,0,0,0,0-2.67L46.38,21A1.81,1.81,0,0,0,43.79,21.14Z"/><path d="M28.56,19.37V18.06a1,1,0,0,0-.46-.81l-3.26-2.18a2.63,2.63,0,0,1-.93-3.58l2.68-4.31a2.63,2.63,0,0,1,3.54-1L33.51,8.3a2.63,2.63,0,0,1,.91,3.8l-5.24,7.46A.34.34,0,0,1,28.56,19.37Z"/><path d="M17.74,11.91l-2.65-1.26a3.15,3.15,0,0,1-1.36-4.47l3.06-4.66a3.14,3.14,0,0,1,4.4-1L23.68,2a3.14,3.14,0,0,1,1,4.26l-2.89,4.38A3.15,3.15,0,0,1,17.74,11.91Z"/><path d="M45.85,31.56l-4.41,4.92a3.17,3.17,0,0,1-4.73,0l-4-4.47h0l-10-2.74a.34.34,0,0,0-.38.51L32,45.37,30,44.59a5.34,5.34,0,0,1-2.64-2.16L20.21,31.12a9.8,9.8,0,0,0-4.1-3.63h0a4.43,4.43,0,0,0-.95-.32c-6.74-1.44-1.33-4.11.6-4.09h.8l5.9-.33a2.3,2.3,0,0,0,1.09-.28l1.74-1A3.76,3.76,0,0,0,26.76,20h0a1.67,1.67,0,0,0-.63-2.26L26,17.66l-9.15-4.81a9.43,9.43,0,0,0-11.47,3.5l-4,6A8.39,8.39,0,0,0,2,32.4L13.54,45.89a7.3,7.3,0,0,1,1.68,5.81l-2.16,15a1.3,1.3,0,0,0,1.29,1.49H37.7a1.49,1.49,0,0,0,1.49-1.58l-.93-15.13a4.36,4.36,0,0,1,1-3l5.15-6.38h0Z"/></g></g></svg>
+    

@@ -1,14 +1,18 @@
+
 .party-info-bg {
+    position: relative;
     overflow: scroll;
     top: 0;
     position: fixed;
     z-index: 11;
     height: 100%;
     width: 100%;
-    min-height: 700px;
-    
+    min-height: 500px;
     box-sizing: border-box;
     padding: 50px;
+    @media only screen and (max-width: 580px) { 
+        padding: 5px
+    }
     .bg {
         height: 100%;
         width: 100%; 
@@ -16,48 +20,114 @@
         position: absolute;
         left: 0;
         top: 0;
-        
     }
-    .party-info-container {
-        width: 100%;
+    
+    .party-info-container-wrapper {
         height: 100%;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.315);
-        box-sizing: border-box;
-        overflow: scroll;
-        animation: openModal 0.5s forwards;
+        width: 100%;
+        position: relative;
+        .close-icon-wrapper {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            right: 10px;
+            top: 10px;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            opacity: 0;
+            background-color: white;
+            animation: fadeIn 0.4s 0.5s forwards;
+            cursor: pointer;
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+        .party-info-container {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.315);
+            box-sizing: border-box;
+            overflow: scroll;
+            animation: openModal 0.5s forwards;
+        }
         .party-info-hero {
             display: flex;
+            align-items: center;
             height: 90%;
             width: 100%;
             position: relative;
+            .icon {
+                &.arrow {
+                    z-index: 2;
+                    position: absolute;
+                    right: 5px;
+                    animation: pulse 0.5s 0.5s;
+                    animation-iteration-count: 3;
+                    cursor: pointer;
+                    @keyframes pulse {
+                        0% {
+                            transform: scale(1);
+                        }
+                        50% {
+                            transform: scale(1.2);
+                        }
+                        100% {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
             .party-leader {
                 position: relative;
                 width: 500px;
                 height: 100%;
                 display: flex;
                 justify-content: center;
+                @media only screen and (max-width: 1170px) { 
+                    width: 250px;
+                }
+                @media only screen and (max-width: 780px) { 
+                    display: none;
+                }
                 .party-leader-image {
                     user-select: none;
                     position: absolute;
                     width: 450px;
                     bottom: 0;
-                    z-index: 1;
-                    filter: drop-shadow(-3px 6px 3px rgba(0, 0, 0, 0.288))
+                    filter: drop-shadow(-3px 6px 3px rgba(0, 0, 0, 0.288));
                 }
             }
             .party-info {
+                position: relative;
+                z-index: 1;
                 padding: 40px;
                 box-sizing: border-box;
                 height: 100%;
                 width: calc(100% - 500px);
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.733);
+                @media only screen and (max-width: 1170px) { 
+                    width: calc(100% - 250px);
+                }
+                @media only screen and (max-width: 780px) { 
+                    width: 100%;
+                }
+                @media only screen and (max-width: 580px) { 
+                    padding: 40px 40px 40px 20px;
+                }
                 .party-logo {
                     display: flex;
                     align-items: center;
                     height: 100px;
+                    margin-bottom: 40px;
                     .party-logo-image {
                         height: 100%;
                     }
@@ -66,19 +136,106 @@
                         font-size: 40px;
                         margin-left: 20px;
                     }
-                   
+                    @media only screen and (max-width: 920px) { 
+                        height: 60px;
+                        .party-logo-name {
+                            font-size: 30px;  
+                        }
+                    }
+                    @media only screen and (max-width: 580px) { 
+                        height: 50px;
+                        .party-logo-name {
+                            font-size: 20px;  
+                        }
+                    }
+                }
+                .party-display-info {
+                    column-count: 4;
+                    column-gap: 40px;
+                    height: 90%;
+                    line-height: 25px;
+                    column-fill: auto;
+                    overflow: scroll;
+                    color: rgb(49, 49, 49);
+                    @media only screen and (max-width: 1700px) { 
+                        column-count: 3;
+                    }
+                    @media only screen and (max-width: 1366px) { 
+                        column-count: 2; 
+                    }
+                    @media only screen and (max-width: 850px) { 
+                        column-count: 1; 
+                    }
+                }
+                .party-links {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 350px;
+                    @media only screen and (max-width: 780px) { 
+                        width: 100%;
+                    }
+                    .member-button {
+                        display: flex;
+                        justify-content: center;
+                        padding: 10px 0; 
+                        color: white; 
+                        border: none; 
+                        font-size: 18px; 
+                        margin-top: 20px; 
+                        border-radius: 4px; 
+                        outline: 0;
+                        white-space: nowrap;
+                        text-decoration: none;
+                        user-select: none;
+                        -webkit-user-drag: none;
+                        width: 150px;
+                        @media only screen and (max-width: 780px) { 
+                            column-count: 1; 
+                            width: 120px;
+                        }
+                        &:hover {
+                            filter: grayscale(0.2);
+                        }
+                    }
+                }
+                
+            }
+        }
+        .party-ideology {
+            position: relative;
+            z-index: 100;
+            min-height: 440px;
+            padding: 50px 10%;
+            text-align: center;
+            box-sizing: border-box;
+            color: white;
+            hr {
+                width: 100px;
+                border: 1px solid rgba(255, 255, 255, 0.904);
+            }
+            .party-ideology-header {
+                font-size: 30px;
+            }
+            .party-ideologies {
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                .party-ideology-section {
+                    width: 300px;
+                    margin-top: 45px;
+                    .party-ideology-section-header {
+                        font-size: 24px;
+                    }
+                    .party-ideology-section-text {
+                        font-weight: lighter;
+                        font-size: 18px;
+                    }
                 }
             }
         }
-        .filler {
-            position: relative;
-            z-index: 2;
-            height: 2000px;
-            p {
-                color: white;
-                position: fixed;
-                right: 0;
-            }
+        .party-statistics {
+            width: 100%;
+            height: 1000px;
         }
     }
     @keyframes openModal {

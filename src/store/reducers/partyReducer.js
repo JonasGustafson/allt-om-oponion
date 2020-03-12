@@ -1,3 +1,12 @@
+/**
+ * 
+
+
+I den nationella svenska blockpolitiken brukar Miljöpartiet på senare år räknas till det rödgröna blocket eller vänsterblocket,[9] och har sedan riksdagsvalet 2014 ingått i regeringen tillsammans med Socialdemokraterna. Redan i valrörelsen inför riksdagsvalet 2010 samarbetade partiet med Socialdemokraterna och Vänsterpartiet som De rödgröna. År 2011 gjorde partiet dock en uppgörelse om migrationsfrågor med den borgerliga Regeringen Reinfeldt. Mellan 1998 och 2006 hade Miljöpartiet ett parlamentariskt samarbete med den socialdemokratiska Regeringen Persson och Vänsterpartiet.
+ */
+
+
+
 
 const initState = {
     latestUpdate: '2020-02',
@@ -5,9 +14,21 @@ const initState = {
         'V': { 
           name: "vänsterpartiet",
           color: '#ee151f',
-          currentPercent: 10.7,
           logo: './images/vansterpartiet.png',
           party_leader_image: './images/jonas-v.png',
+          homepage: 'https://www.vansterpartiet.se/',
+          register_url: 'https://vansterpartietweb.azurewebsites.net/#/newregister',
+          heroText: {
+            breadText: 'Vänsterpartiet (V) är ett svenskt socialistiskt och feministiskt parti på ekologisk grund. På partiets valsedlar anges partibeteckningen Vänsterpartiet. Partiledare är sedan 2012 Jonas Sjöstedt.',
+            paragraphs: [
+              {title: null,       text: 'Vänsterpartiet antog sitt nuvarande namn 1990 som ersatte det tidigare Vänsterpartiet Kommunisterna som använts från 1967, dessförinnan Sveriges Kommunistiska Parti från 1921 och Sveriges socialdemokratiska vänsterparti från 1917. Vänsterpartiet har som socialdemokraterna sitt ursprung i den socialistiska arbetarrörelsen men varit betydligt mindre än socialdemokraterna som länge också var negativa till samarbete med Vänsterpartiet och den kommunistiska ideologi partiet stod för fram till 1980-talet.'},
+              {title: null,       text: 'Mellan 1998 och 2006 agerade Vänsterpartiet tillsammans med Miljöpartiet stödparti till den Socialdemokratiska minoritetsregeringen. Inför riksdagsvalet i Sverige 2010, mellan december 2008 och den 26 oktober 2010, samarbetade partiet tillsammans med Socialdemokraterna och Miljöpartiet som De rödgröna. Från riksdagsvalet 2014 till 2019 samarbetade Vänsterpartiet med Regeringen Löfven, bestående av Socialdemokraterna och Miljöpartiet, om budgeten. Detta samarbete upphörde med januariavtalet.'},
+              {title: null,       text: 'Partiet är det femte största i riksdagen, med 28 mandat av 349, efter att ha fått 8,00 procent av rösterna i riksdagsvalet 2018.[8] Vänsterpartiet har sitt starkaste stöd i Göteborgs kommuns (14,00 % valet 2018, 9,35 % valet 2014), Stockholms kommuns (13,12 % valet 2018, 7,73 % valet 2014) och Västerbottens läns (12,69 % valet 2018, 10,96 % valet 2014) riksdagsvalkretsar.'},
+              {title: null,       text: 'I Europaparlamentsvalet 2019 erhöll Vänsterpartiet 6,80 procentenheter av väljarnas röster och fick därmed ett mandat i parlamentet. I parlamentet är Vänsterpartiet en del av Gruppen Europeiska enade vänstern/Nordisk grön vänster. Partiet är inte medlem av Europeiska vänsterpartiet.'},
+              {title: null,       text: 'Partiet har inte längre någon nomineringsgrupp i Svenska kyrkan, utan har ersatts av Vänsterns religiösa nätverk (VRG) som har nomineringsgruppen Vänstern i Svenska kyrkan (ViSK).'},
+            ]
+          },
+          currentPercent: 10.7,
           opinionPolls: {
             '2016-03': 7.3,
             '2016-04': 7.8,
@@ -64,6 +85,20 @@ const initState = {
           color: '#eb1934',
           logo: './images/socialdemokraterna.png',
           party_leader_image: './images/stefan-s.png',
+          homepage: 'https://www.socialdemokraterna.se',
+          register_url: 'https://www.socialdemokraterna.se/bli-medlem',
+          heroText: {
+            breadText: 'Sveriges socialdemokratiska arbetareparti (SAP), vanligen Socialdemokraterna (S), är ett socialdemokratiskt politiskt parti i Sverige. På partiets valsedlar anges partibeteckningen Arbetarepartiet – Socialdemokraterna. Partiordförande sedan 27 januari 2012 är Stefan Löfven.',
+            paragraphs: [
+              {title: null,       text: 'Socialdemokraterna har sitt ursprung i den socialistiska arbetarrörelsen och är dess främsta politiska gren. Partiet innehade regeringsmakten oavbrutet från 1936 till 1976. Partiet sitter efter valet 2014 i en koalitionsregering med Miljöpartiet, efter att ha varit i opposition sedan valet 2006.'},
+              {title: null,       text: 'Partiet har stått för marknadsekonomi kombinerat med politiska regleringar och statligt ägande ett samhälle med allmän välfärd genom en stark, skattefinansierad offentlig sektor. I och med 1980- och 1990-talens tredje vägens politik har partiet rört sig närmare den så kallade politiska mitten. Partiets officiella ideologi är socialdemokrati. Socialdemokraterna betonar vikten av fördelningspolitik samt principen av var och en efter förmåga, åt var och en efter behov.'},
+              {title: null,       text: 'Partiet är Sveriges största sett till antalet medlemmar och valresultat, både i riksdagen och i kyrkomötet. Socialdemokraterna har sitt starkaste stöd i storstädernas utanförskapsområden samt i norra Sverige.'},
+              {title: null,       text: 'I Europaparlamentsvalet 2019 erhöll Socialdemokraterna 23,48 procentenheter av väljarnas röster och fick därmed fem mandat i parlamentet. I parlamentet är Socialdemokraterna en del av Gruppen Progressiva förbundet av socialdemokrater i Europaparlamentet (S&D). Partiet är medlem av Europeiska socialdemokratiska partiet.'},
+              {title: null,       text: 'Partiet är också en nomineringsgrupp i Svenska kyrkan under beteckningen Arbetarpartiet - socialdemokraterna.'},
+              {title: 'Riksnivå', text: 'Partiet har sitt huvudkontor på Sveavägen 68 i Stockholm. Här sammanträder partistyrelsen och dess verkställande utskott (VU) som är högsta beslutande organ mellan kongresserna, som hålls vartannat år. LO:s ordförande har alltid en adjungerad plats i både partistyrelsen och VU.'},
+              {title: 'Länsnivå', text: 'Partiet är uppdelat i 26 partidistrikt. Partidistrikten utgör partiets högsta organisatoriska enhet på regional nivå. Distrikten styrs av en distriktsstyrelse som väljs på distriktets kongress. Distriktets kongress utgör partidistriktets högsta beslutande organ. Partidistrikten fastställer partiets kandidatlistor för val till landstingsfullmäktige och Svenska kyrkans valda beslutsorgan.'},
+            ]
+          },
           currentPercent: 23.6,
           opinionPolls: {
             '2016-03': 25.2,
@@ -120,7 +155,17 @@ const initState = {
           name: "miljöpartiet", 
           color: '#00a238',
           logo: './images/miljopartiet.png',
-          party_leader_image: './images/isabella-mp.png',
+          party_leader_image: './images/mp-leaders.png',
+          homepage: 'https://www.mp.se',
+          register_url: 'https://www.mp.se/bli-medlem',
+          heroText: {
+            breadText: 'Miljöpartiet de gröna (MP), vanligen Miljöpartiet, är ett politiskt parti i Sverige, bildat 1981. Partiet växte fram främst ur miljörörelsen och fredsrörelsen och var ursprungligen en reaktion mot kärnkraftsomröstningen, blockpolitik och vad man uppfattade som bristande deltagardemokrati och jämställdhet i andra partier. Dess tillkomst inspirerades av andra gröna partier som det tyska Die Grünen som anammar den gröna ideologin. På partiets valsedlar anges partibeteckningen Miljöpartiet de gröna.',
+            paragraphs: [
+              {title: null,       text: 'Miljöpartiet har en kvinnlig och en manlig partiledare, benämnda språkrör, vilka (sedan maj 2019) är Isabella Lövin och Per Bolund. Partiet är det minsta i riksdagen, med 16 mandat av 349, efter att ha fått 4,41 procent av rösterna i riksdagsvalet 2018. I Europaparlamentsvalet 2019 fick Miljöpartiet 2 mandat, efter att ha fått 11,52 procent av rösterna. I parlamentet är Miljöpartiet en del av Gruppen De gröna/Europeiska fria alliansen (G/EFA). Partiet är medlem av det Europeiska gröna partiet. Miljöpartiet har sitt starkaste stöd i storstadsregionerna Stockholms och Göteborgs kommuners riksdagsvalkretsar, samt bland unga och högutbildade väljare.'},
+              {title: null,       text: 'I den nationella svenska blockpolitiken brukar Miljöpartiet på senare år räknas till det rödgröna blocket eller vänsterblocket,[9] och har sedan riksdagsvalet 2014 ingått i regeringen tillsammans med Socialdemokraterna. Redan i valrörelsen inför riksdagsvalet 2010 samarbetade partiet med Socialdemokraterna och Vänsterpartiet som De rödgröna. År 2011 gjorde partiet dock en uppgörelse om migrationsfrågor med den borgerliga Regeringen Reinfeldt. Mellan 1998 och 2006 hade Miljöpartiet ett parlamentariskt samarbete med den socialdemokratiska Regeringen Persson och Vänsterpartiet.'},
+              {title: null,       text: 'På sin hemsida (2018) lyfter Miljöpartiet fram fyra områden som särskilt viktiga. För det första miljöpolitiken, där Miljöpartiet vill skydda skogar, hav och den biologiska mångfalden. Men även att Miljöpartiet vill satsa på ekologisk mat, förnybar energi, hållbara transporter och grön ekonomi. För det andra klimatpolitiken, där Miljöpartiet vill att Sverige ökar takten för att bli fossilfritt. För det tredje skola och utbildning, där Miljöpartiet vill satsa på tidiga insatser, bättre villkor och högre lön för lärarna samt ökad jämlikhet mellan och i skolorna. Och för det fjärde migration och lika rätt, där Miljöpartiet framhåller sin vision om en värld utan gränser "där alla kan flytta, men ingen tvingas fly'},
+            ]
+          },
           currentPercent: 4.4,
           opinionPolls: {
             '2016-03': 5.5,
@@ -178,6 +223,18 @@ const initState = {
           color: '#000094',
           logo: './images/moderaterna.png',
           party_leader_image: './images/ulf-m.png',
+          homepage: 'https://moderaterna.se',
+          register_url: 'https://moderaterna.se/bli-medlem',
+          heroText: {
+            breadText: 'Moderata samlingspartiet (M), vanligen Moderaterna, är ett liberalkonservativt politiskt parti i Sverige. Moderaterna är Sveriges näst största parti sett till antal mandat i riksdagen. Partiledare är sedan 1 oktober 2017 Ulf Kristersson.',
+            paragraphs: [
+              {title: null,       text: 'Moderata samlingspartiet antog sitt nuvarande namn 1969 som ersatte det tidigare Högerpartiet som använts från 1952, och som grundades som Allmänna valmansförbundet 1904. På partiets valsedlar anges partibeteckningen Moderaterna. Från valrörelsen 2006 till och med april 2019 betecknade partiet sig som Nya Moderaterna; detta var dock inte ett officiellt namn.'},
+              {title: null,       text: 'Partiet har sedan 1979 blivit det största borgerliga partiet i alla riksdagsval. Partiet har sedan ombildningen 1969 tagit två statsministerposter, av Carl Bildt mellan 1991 och 1994 och Fredrik Reinfeldt mellan 2006 och 2014, samt suttit i regering vid två tillfällen under Thorbjörn Fälldin. Från och med 2004 ingick Moderaterna tillsammans med Centerpartiet, Liberalerna och Kristdemokraterna i den borgerliga koalitionen Alliansen. Efter riksdagsvalet 2018 och det efterföljande januariavtalet menade Kristersson och Kristdemokraternas partiledare Ebba Busch Thor att Alliansen inte längre existerade.'},
+              {title: null,       text: 'I Europaparlamentet utgör Moderaterna, tillsammans med Kristdemokraterna, en del av Europeiska folkpartiets grupp (EPP). Partiet har fyra mandat i parlamentet efter att ha fått 16,83 procent av rösterna i Europaparlamentsvalet 2019. Inom Sverige har Moderaterna sitt starkaste stöd i Stockholms läns (26,01 % valet 2018, 32,66 % valet 2014) och Skåne läns södras (23,98 % valet 2018, 28,21 % valet 2014) riksdagsvalkretsar. I riksdagsvalet 2018 fick Moderaterna 19,84 procent, en minskning med 3,49 procentenheter jämfört med valet 2014.'},
+              {title: null,       text: 'Alltsedan bildandet har Moderaterna influerats av liberalism[förtydliga][källa behövs]. Under 1980-talet fick partiet en allt mer marknadsliberal framtoning, något som jämte den ursprungligt konservativa värdegrunden låg till grund för partiets nu officiella ideologi liberalkonservatism. När Fredrik Reinfeldt övertog ledarrollen i Moderaterna lanserades Nya Moderaterna och partiet sade sig närma sig den politiska mitten.'},
+              {title: null,       text: 'Moderata samlingspartiets ideologi är officiellt liberalkonservatism. Partiet är positivt till marknadsekonomi och kapitalism, och menar att frihet möjliggörs via åtgärder såsom sänkta skatter, privatiseringar och avregleringar. Möjligheten till val av leverantör av varor och tjänster är enligt partiet viktig; detta skall gå hand i hand med en minskad offentlig sektor och ett minskat statligt ägande, liksom minskat engagemang i samhällsekonomin.'},
+            ]
+          },
           currentPercent: 18.1,
           opinionPolls: {
             '2016-03': 24.7,
@@ -235,6 +292,18 @@ const initState = {
           color: '#006ab4',
           logo: './images/liberalerna.png',
           party_leader_image: './images/nyamko-l.png',
+          homepage: 'https://www.liberalerna.se',
+          register_url: 'https://www.liberalerna.se/bli-medlem/',
+          heroText: {
+            breadText: 'Liberalerna (L), tidigare Folkpartiet liberalerna (FP) och dessförinnan Folkpartiet (FP), är ett socialliberalt politiskt parti i Sverige. Partiledare är sedan 2019 Nyamko Sabuni.',
+            paragraphs: [
+              {title: null,       text: 'Partiet bildades 1934 under namnet Folkpartiet genom en sammanslagning av riksdagspartierna Sveriges liberala parti och Frisinnade folkpartiet. Från 1940- till 1960-talet var de mestadels det största borgerliga partiet. Mellan 2004 och 2019 ingick Liberalerna tillsammans med Moderaterna, Kristdemokraterna och Centerpartiet i den borgerliga Alliansen.'},
+              {title: null,       text: 'Partiledaren Bertil Ohlin förespråkade på 1940-talet idén om "fri ekonomi med socialt ansvar" eller socialliberalismen som partiets ideologi för att formulera ett reformvänligt alternativ till Socialdemokraterna i svensk politik. Sedan mitten på 1990-talet har partiet intagit en tydlig borgerlig profil för marknadsinslag i ekonomin, avregleringar och privatiseringar.[8] Liberalerna beskriver sig som ett liberalt idéparti med individen i centrum, som genom politik verkar för att människans valfrihet och egenmakt ökar och som genom politik skapar förutsättningar snarare än hinder. Liberalerna profilerar sig främst inom utbildnings-, jämställdhets-, integrations- och invandrings- samt Europafrågor.'},
+              {title: null,       text: 'Partiet är efter riksdagsvalet 2018 storleksmässigt det sjunde största i Sveriges riksdag, endast Miljöpartiet har färre mandat. Liberalerna har traditionellt sitt starkaste stöd i storstadsområdena och på högskoleorter. I riksdagsvalet 2018 var partiet starkast i Stockholms kommuns valkrets följt av Göteborgs kommuns valkrets. Partiets starkaste kommuner i kommunalvalet var Landskrona kommun där partiet erhöll 34,2 procent av rösterna följt av Skinnskattebergs kommun med 21,5 procent. Överlag har partiet sitt största stöd hos storstads- och förortsbor, men även hos akademiker och unga. Statsvetare brukar ibland kalla Liberalerna för "partisystemets Hallsberg; en väntsal för partibytare", då partiet har mycket svårt att behålla sina väljare, men samtidigt utgör nästan var femte väljares andrahandsval.'},
+              {title: null,       text: 'I Europaparlamentsvalet 2019 fick de 4,13 procentenheter av väljarnas röster och därmed ett mandat i parlamentet. Liberalerna utgör en del av det europeiska partiet Alliansen liberaler och demokrater för Europa (ALDE) och ingår i parlamentsgruppen med samma namn. I riksdagsvalet 2014 minskade partiet med 1,7 procentenheter till 5,4 procent.'},
+              {title: null, text: 'Partiet har inte längre någon nomineringsgrupp i Svenska kyrkan, utan har ersatts av nätverket Fria liberaler i Svenska kyrkan (FiSK) vars nomineringsgrupp har samma namn.'},
+            ]
+          },
           currentPercent: 3.9,
           opinionPolls: {
             '2016-03': 4.6,
@@ -292,6 +361,19 @@ const initState = {
           color: '#00873d',
           logo: './images/centerpartiet.png',
           party_leader_image: './images/annie-c.png',
+          homepage: 'https://www.centerpartiet.se',
+          register_url: 'https://www.centerpartiet.se/engagera-dig/bli-medlem',
+          heroText: {
+            breadText: 'Centerpartiet (C), även kallat Centern, är ett svenskt socialliberalt och grönt politiskt parti. På partiets valsedlar anges partibeteckningen Centerpartiet. Partiledare är sedan 2011 Annie Lööf.',
+            paragraphs: [
+              {title: null,               text: 'Centerpartiet antog sitt nuvarande namn 1957 som ersatte det tidigare Bondeförbundet som använts från 1913. På 1970-talet var Centerpartiet det ledande borgerliga partiet. Partiet ingick på 1950-talet i några socialdemokratiska koalitionsregeringar och stödde även 1995–1998 en socialdemokratisk regering. Sedan 2004 ingår Centerpartiet tillsammans med Moderaterna, Kristdemokraterna och Liberalerna i den borgerliga Alliansen som efter valet 2006 styrde Sverige 2006–2014 (se regeringen Reinfeldt).'},
+              {title: null,               text: 'Partiet var ursprungligen landsbygdsinriktat och förespråkade sparsamhet med statens pengar. I takt med folkhemmets uppbyggnad, med urbanisering och landsbygdens avfolkning som följd, blev decentralisering partiets främsta ledord. Samtidigt fick liberala strömningar större genomslag i partiet och individen betonades. Sedan 2013 definierar partiet sin liberala ideologi som "social, decentralistisk och grön". Viktiga utgångspunkter för Centerpartiet är federalism, öppet samhälle med individen i fokus. Centerpartiet profilerar sig främst inom frågor som rör arbete och företagande, decentralisering och landsbygd, välfärd och miljö.'},
+              {title: null,               text: 'Partiet är det fjärde största i riksdagen, med 31 mandat av 349, efter att ha fått 8,61 procent av rösterna i riksdagsvalet 2018. Centerpartiet har sitt starkaste stöd i Gotlands läns (17,20 % valet 2018, 13,41 % valet 2014) och Jämtlands läns (15,36 % valet 2018, 11,33 % valet 2014) riksdagsvalkretsar. Partiet är traditionellt sett starkare i kommuner och landsting, än på det nationella planet. Centerpartiet är det tredje största partiet i kyrkomötet.'},
+              {title: null,               text: 'I Europaparlamentsvalet 2019 erhöll Centerpartiet 10,78 procent av väljarnas röster och fick därmed två mandat i parlamentet. I parlamentet är Centerpartiet en del gruppen Alliansen liberaler och demokrater för Europa (ALDE) och medlem av det europeiska partiet med samma namn. Internationellt är partiet medlem av Liberala internationalen.'},
+              {title: null,               text: 'Partiet har en nomineringsgrupp i Svenska kyrkan med partibeteckningen Centerpartiet.'},
+              {title: 'Lokalavdelningar', text: 'Centerpartiet finns lokalt över hela landet med distrikt i Blekinge, Dalarna, Fyrbodal, Gotland, Gävleborg, Göteborg, Halland, Jämtland, Jönköpings län, Kalmar län, Kronoberg, Norrbotten, Sjuhärad, Skaraborg, Skåne, Stockholm, Södermanland, Uppsala län, Värmland, Västerbotten, Västernorrland, Västmanland, Västra Götalands Västra, Örebro län och Östergötland. Utöver det är Centerpartiet representerade i kommuner och landsting.'},
+            ]
+          },
           currentPercent: 8.3,
           opinionPolls: {
             '2016-03': 6.0,
@@ -349,6 +431,19 @@ const initState = {
           color: '#005ea2',
           logo: './images/kristdemokraterna.png',
           party_leader_image: './images/ebba-kd.png',
+          homepage: 'https://kristdemokraterna.se',
+          register_url: 'https://kristdemokraterna.se/engagera-dig/bli-medlem/',
+          heroText: {
+            breadText: 'Kristdemokraterna (KD) är ett kristdemokratiskt och socialkonservativt politiskt parti i Sverige. På partiets valsedlar anges partibeteckningen Kristdemokraterna. Partiledare är sedan 25 april 2015 Ebba Busch Thor.',
+            paragraphs: [
+              {title: null,       text: 'Kristdemokraterna antog sitt nuvarande namn 1996 som ersatte Kristdemokratiska Samhällspartiet som använts från 1987 som då ersatte Kristen demokratisk samling som partiet bar från dess grundande 1964. Partiet fick in sin första representant i riksdagen 1985 i en valsamverkan med Centerpartiet och kom in under eget namn 1991. Åren 2004–2019 ingick Kristdemokraterna tillsammans med Moderaterna, Centerpartiet och Liberalerna i den borgerliga Alliansen.'},
+              {title: null,       text: 'Kristdemokraterna beskrev sig ursprungligen som ett icke-socialistisk parti, men ville inte heller betecknas som borgerligt, men tog ställning för en borgerlig regering när de inledde ett valsamarbete 1985 med Thorbjörn Fälldins centerparti. Idag betecknar Kristdemokraterna sig som ett konservativt och "värdeorienterat idéparti" som "står för demokrati byggd på kristen människosyn och värdegrund" och hävdar sig till den kontinentala kristdemokratiska traditionen med idéer som personalism, människan och hennes ofullkomlighet, förvaltarskap, subsidiaritet och solidaritet. Partiet profilerar sig främst inom vård, omsorg, familje- och äldrefrågor, integration samt kriminalpolitik.'},
+              {title: null,       text: 'Partiet är mandatmässigt det sjätte största i Sveriges riksdag och har cirka 21 600 medlemmar. Partiet har sitt starkaste stöd i valkretsarna i Jönköpings län, Stockholms län och Västra Götalands läns västra valkrets.'},
+              {title: null,       text: 'I Europaparlamentsvalet 2019 erhöll Kristdemokraterna 8,62 procentenheter av väljarnas röster och har därmed två mandat i parlamentet. I parlamentet är Kristdemokraterna en del av Europeiska folkpartiets grupp (EPP). Partiet är medlem av det Europeiska folkpartiet och Kristdemokratiska internationalen.'},
+              {title: null,       text: 'Partiet har inte längre någon nomineringsgrupp i Svenska kyrkan, utan har ersatts av nätverket Kristdemokrater för en levande kyrka (KR) med samma namn.'},
+              {title: 'Organisation', text: 'Partiets organisation består av tre nivåer: partiavdelning, partidistrikt och riksorganisation. Medlemsinflytande utövas direkt av medlemmarna på partiavdelningsnivå och av de ombud som medlemmarna utser för partidistrikts- och riksorganisationsnivå. Vid alla tre nivåer finns en styrelse som väljs av respektive partiavdelningsårsmöte, partidistriktsårsmöte eller riksting. Därtill har de tre associerade förbunden rätt att utse varsin ledamot och ersättare på respektive organisationsnivå.'},
+            ]
+          },
           currentPercent: 6.6,
           opinionPolls: {
             '2014-12': 5.5,
@@ -412,6 +507,20 @@ const initState = {
           color: '#ffda00',
           logo: './images/sverigedemokraterna.png',
           party_leader_image: './images/jimmie-sd.png',
+          homepage: 'https://sd.se',
+          register_url: 'https://sd.se/bli-medlem/',
+          heroText: {
+            breadText: 'Sverigedemokraterna (SD) är ett nationalistiskt och socialkonservativt politiskt parti i Sverige. På partiets valsedlar anges partibeteckningen Sverigedemokraterna. Partiledare är sedan 2005 Jimmie Åkesson.',
+            paragraphs: [
+              {title: null,       text: 'Sverigedemokraterna bildades 6 februari 1988 i Stockholm. Bland partiets grundare och tidiga medlemmar fanns flera personer tidigare verksamma i högerextrema och rasistiska partier och organisationer som Framstegspartiet, Sverigepartiet och Bevara Sverige Svenskt (BSS). I partiprogrammet antaget 1989 skriver partiet "Vi tror att en nationellt inriktad politik är lösningen på många av de problem som Sverige har idag."'},
+              {title: null,       text: 'I slutet av 2011 ändrade partiet sin ideologiska profil genom att i första hand beskriva sig som "ett socialkonservativt parti med en nationalistisk grundsyn" från att tidigare ha beskrivit sig som "ett demokratiskt, nationalistiskt parti". Genomgripande frågor för partiet är enligt detsamma bekämpning av brottslighet och en restriktiv flykting- och invandringspolitik. I den statliga utredningen "Utredningen om ett effektivare arbete mot främlingsfientlighet" betecknades partiet 2012 som främlingsfientligt och att det även ger uttryck för en etnopluralistisk hållning.'},
+              {title: null,       text: 'Partiet fick sina första mandat i kommunfullmäktige i valet 1991 och passerade riksdagens fyraprocentsspärr i valet 2010 med resultatet 5,7 procent. I Riksdagsvalet 2014 ökade partiet med 7,16 procentenheter och fick 12,86 procent av rösterna, och i Riksdagsvalet 2018 ökades stödet ytterligare med 4,68 procentenheter och de fick 17,53 procent av rösterna. Sverigedemokraterna är därmed Sveriges tredje största riksdagsparti. Övriga riksdagspartier har konsekvent vägrat samarbeta med Sverigedemokraterna. Därigenom står Sverigedemokraterna som ett eget parti utanför blockpolitiken och andra koalitioner på riks- och lokalnivå.'},
+              {title: null,       text: 'Sverigedemokraterna har sitt starkaste stöd till övervägande del i traditionellt socialdemokratiskt styrda kommuner, koncentrerade till Sydsverige (framförallt Skåne). Svagast stöd har partiet i Västerbotten, trots socialdemokratiskt styrda kommuner.'},
+              {title: null,       text: 'I Europaparlamentsvalet 2014 ökade Sverigedemokraterna med 6,6 procentenheter till 9,7 procent av väljarnas röster. Efter valet anslöt sig partiets två Europaparlamentariker till EU-parlamentsgruppen Gruppen Frihet och direktdemokrati i Europa (EFDD). Partiet motsätter sig överstatlighet och förespråkar att Sverige omförhandlar sitt EU-medlemskap för att få ett EES-medlemskap. I början av juli 2018 lämnade ledamöterna från Sverigedemokraterna gruppen för att istället ansluta sig till Gruppen Europeiska konservativa och reformister (ECR-gruppen).'},
+              {title: null,       text: 'Partiet är också en nomineringsgrupp i Svenska kyrkan.'},
+              {title: 'Partistyrelse', text: 'Sverigedemokraternas partistyrelse väljs vartannat år vid partiets stämma, kallad landsdagarna, som hålls på udda år under perioden mellan den 1 september och den 30 november. Partistyrelsen, som för två år valdes i Norrköping på Sverigedemokraternas landsdagar (tidigare användes benämningen riksårsmöte) i november 2017, följer enligt nedan.'},
+            ]
+          },
           currentPercent: 23.4,
           opinionPolls: {
             '2014-12': 12.5,
