@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "54a0ef6294209421dd2e6231f2f46c0a",
+    "revision": "62b6ab3e63f80b1127b40f5b47e917aa",
     "url": "/allt-om-oponion/index.html"
   },
   {
-    "revision": "68b6d7cbb06ec00db2fd",
-    "url": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css"
+    "revision": "bf2c4094a62b54c89b80",
+    "url": "/allt-om-oponion/static/css/main.db334cef.chunk.css"
   },
   {
     "revision": "a06cc34fd1a225b12dcf",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/allt-om-oponion/static/js/2.878c41ab.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "68b6d7cbb06ec00db2fd",
-    "url": "/allt-om-oponion/static/js/main.c75a9600.chunk.js"
+    "revision": "bf2c4094a62b54c89b80",
+    "url": "/allt-om-oponion/static/js/main.9ec717c4.chunk.js"
   },
   {
     "revision": "c50872f7106ce93d3ce6",

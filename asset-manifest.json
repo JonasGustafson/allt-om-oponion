@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css",
-    "main.js": "/allt-om-oponion/static/js/main.c75a9600.chunk.js",
-    "main.js.map": "/allt-om-oponion/static/js/main.c75a9600.chunk.js.map",
+    "main.css": "/allt-om-oponion/static/css/main.db334cef.chunk.css",
+    "main.js": "/allt-om-oponion/static/js/main.9ec717c4.chunk.js",
+    "main.js.map": "/allt-om-oponion/static/js/main.9ec717c4.chunk.js.map",
     "runtime-main.js": "/allt-om-oponion/static/js/runtime-main.5cb8ecac.js",
     "runtime-main.js.map": "/allt-om-oponion/static/js/runtime-main.5cb8ecac.js.map",
     "static/js/2.878c41ab.chunk.js": "/allt-om-oponion/static/js/2.878c41ab.chunk.js",
     "static/js/2.878c41ab.chunk.js.map": "/allt-om-oponion/static/js/2.878c41ab.chunk.js.map",
     "index.html": "/allt-om-oponion/index.html",
-    "precache-manifest.1c870e5b0914488380a700ec4afd50e2.js": "/allt-om-oponion/precache-manifest.1c870e5b0914488380a700ec4afd50e2.js",
+    "precache-manifest.5f93f6d3ad6a888b7c617264a4f01c5a.js": "/allt-om-oponion/precache-manifest.5f93f6d3ad6a888b7c617264a4f01c5a.js",
     "service-worker.js": "/allt-om-oponion/service-worker.js",
-    "static/css/main.ebe9d9e1.chunk.css.map": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css.map",
+    "static/css/main.db334cef.chunk.css.map": "/allt-om-oponion/static/css/main.db334cef.chunk.css.map",
     "static/js/2.878c41ab.chunk.js.LICENSE.txt": "/allt-om-oponion/static/js/2.878c41ab.chunk.js.LICENSE.txt",
     "static/media/sort-icon.svg": "/allt-om-oponion/static/media/sort-icon.81d5ab3b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5cb8ecac.js",
     "static/js/2.878c41ab.chunk.js",
-    "static/css/main.ebe9d9e1.chunk.css",
-    "static/js/main.c75a9600.chunk.js"
+    "static/css/main.db334cef.chunk.css",
+    "static/js/main.9ec717c4.chunk.js"
   ]
 }
