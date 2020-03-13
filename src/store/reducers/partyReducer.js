@@ -28,6 +28,10 @@ const initState = {
               {title: null,       text: 'Partiet har inte längre någon nomineringsgrupp i Svenska kyrkan, utan har ersatts av Vänsterns religiösa nätverk (VRG) som har nomineringsgruppen Vänstern i Svenska kyrkan (ViSK).'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 10.7,
           opinionPolls: {
             '2016-03': 7.3,
@@ -99,6 +103,10 @@ const initState = {
               {title: 'Länsnivå', text: 'Partiet är uppdelat i 26 partidistrikt. Partidistrikten utgör partiets högsta organisatoriska enhet på regional nivå. Distrikten styrs av en distriktsstyrelse som väljs på distriktets kongress. Distriktets kongress utgör partidistriktets högsta beslutande organ. Partidistrikten fastställer partiets kandidatlistor för val till landstingsfullmäktige och Svenska kyrkans valda beslutsorgan.'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 23.6,
           opinionPolls: {
             '2016-03': 25.2,
@@ -166,6 +174,10 @@ const initState = {
               {title: null,       text: 'På sin hemsida (2018) lyfter Miljöpartiet fram fyra områden som särskilt viktiga. För det första miljöpolitiken, där Miljöpartiet vill skydda skogar, hav och den biologiska mångfalden. Men även att Miljöpartiet vill satsa på ekologisk mat, förnybar energi, hållbara transporter och grön ekonomi. För det andra klimatpolitiken, där Miljöpartiet vill att Sverige ökar takten för att bli fossilfritt. För det tredje skola och utbildning, där Miljöpartiet vill satsa på tidiga insatser, bättre villkor och högre lön för lärarna samt ökad jämlikhet mellan och i skolorna. Och för det fjärde migration och lika rätt, där Miljöpartiet framhåller sin vision om en värld utan gränser "där alla kan flytta, men ingen tvingas fly'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 4.4,
           opinionPolls: {
             '2016-03': 5.5,
@@ -235,6 +247,10 @@ const initState = {
               {title: null,       text: 'Moderata samlingspartiets ideologi är officiellt liberalkonservatism. Partiet är positivt till marknadsekonomi och kapitalism, och menar att frihet möjliggörs via åtgärder såsom sänkta skatter, privatiseringar och avregleringar. Möjligheten till val av leverantör av varor och tjänster är enligt partiet viktig; detta skall gå hand i hand med en minskad offentlig sektor och ett minskat statligt ägande, liksom minskat engagemang i samhällsekonomin.'},
             ]
           },
+          ideologies: [
+            {icon: 'economy',  title: 'Marknadsekonomi',  text: ''},
+            {icon: 'capitalism', title: 'Kapitalism', text: ''},
+          ],
           currentPercent: 18.1,
           opinionPolls: {
             '2016-03': 24.7,
@@ -304,6 +320,10 @@ const initState = {
               {title: null, text: 'Partiet har inte längre någon nomineringsgrupp i Svenska kyrkan, utan har ersatts av nätverket Fria liberaler i Svenska kyrkan (FiSK) vars nomineringsgrupp har samma namn.'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 3.9,
           opinionPolls: {
             '2016-03': 4.6,
@@ -374,6 +394,10 @@ const initState = {
               {title: 'Lokalavdelningar', text: 'Centerpartiet finns lokalt över hela landet med distrikt i Blekinge, Dalarna, Fyrbodal, Gotland, Gävleborg, Göteborg, Halland, Jämtland, Jönköpings län, Kalmar län, Kronoberg, Norrbotten, Sjuhärad, Skaraborg, Skåne, Stockholm, Södermanland, Uppsala län, Värmland, Västerbotten, Västernorrland, Västmanland, Västra Götalands Västra, Örebro län och Östergötland. Utöver det är Centerpartiet representerade i kommuner och landsting.'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 8.3,
           opinionPolls: {
             '2016-03': 6.0,
@@ -444,6 +468,10 @@ const initState = {
               {title: 'Organisation', text: 'Partiets organisation består av tre nivåer: partiavdelning, partidistrikt och riksorganisation. Medlemsinflytande utövas direkt av medlemmarna på partiavdelningsnivå och av de ombud som medlemmarna utser för partidistrikts- och riksorganisationsnivå. Vid alla tre nivåer finns en styrelse som väljs av respektive partiavdelningsårsmöte, partidistriktsårsmöte eller riksting. Därtill har de tre associerade förbunden rätt att utse varsin ledamot och ersättare på respektive organisationsnivå.'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 6.6,
           opinionPolls: {
             '2014-12': 5.5,
@@ -521,6 +549,10 @@ const initState = {
               {title: 'Partistyrelse', text: 'Sverigedemokraternas partistyrelse väljs vartannat år vid partiets stämma, kallad landsdagarna, som hålls på udda år under perioden mellan den 1 september och den 30 november. Partistyrelsen, som för två år valdes i Norrköping på Sverigedemokraternas landsdagar (tidigare användes benämningen riksårsmöte) i november 2017, följer enligt nedan.'},
             ]
           },
+          ideologies: [
+            {icon: 'feminism',  title: 'Feminism',  text: ''},
+            {icon: 'socialism', title: 'Socialism', text: ''},
+          ],
           currentPercent: 23.4,
           opinionPolls: {
             '2014-12': 12.5,

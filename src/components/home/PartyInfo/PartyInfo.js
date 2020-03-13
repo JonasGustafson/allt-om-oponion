@@ -86,27 +86,14 @@ class PartyInfo extends Component {
                                 Grundpelare
                             </p>
                             <div className="party-ideologies">
-                                <div className="party-ideology-section">
-                                    <Icon icon='socialism' color="white" height='80px'/>
-                                    <p className="party-ideology-section-header">
-                                        Socialism
-                                    </p>
-                                    <hr/>
-                                    <p className="party-ideology-section-text">
-                                        Socialism är något som vi alla vet vad det är men ändå inte har en aning för att det är så himla konstigt att socialism inte borde vara så bra som alla kanske egentligen tror
-                                    </p>
-                                </div>
-                                <div className="party-ideology-section">
-                                <Icon icon='feminism' color="white" height='80px'/>
-                                    <p className="party-ideology-section-header">
-                                        Feminism
-                                    </p>
-                                    <hr/>
-                                    <p className="party-ideology-section-text">
-                                        Feminism är något som vi alla vet vad det är men ändå inte har en aning för att det är så himla konstigt att feminism inte borde vara så bra som alla kanske egentligen tror
-                                    </p>
-                                </div>
-                                
+                                {this.props.party.ideologies.map(ideology => 
+                                    <div className="party-ideology-section">
+                                        <Icon icon={ideology.icon} color="white" height='80px'/>
+                                        <p className="party-ideology-section-header">{ideology.title}</p>
+                                        <hr/>
+                                        <p className="party-ideology-section-text">{ideology.text}</p>
+                                    </div>   
+                                )}
                             </div>
                         </div>
                         <div className="party-statistics">
