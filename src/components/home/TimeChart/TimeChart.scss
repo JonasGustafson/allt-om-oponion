@@ -63,8 +63,8 @@
             overflow: visible;  
             box-shadow : 0px -0px 10000px transparent; /*trick for chrome*/
             .path {
-                stroke-dasharray: 3000;
-                stroke-dashoffset: 3000;
+                stroke-dasharray: 6000;
+                stroke-dashoffset: 6000;
                 animation: animatePath 2s linear forwards;
                 opacity: 0.6;
                 pointer-events: none;

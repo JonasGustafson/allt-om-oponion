@@ -86,7 +86,7 @@
             }
             .party-leader {
                 position: relative;
-                width: 500px;
+                width: 480px;
                 height: 100%;
                 display: flex;
                 justify-content: center;
@@ -99,7 +99,7 @@
                 .party-leader-image {
                     user-select: none;
                     position: absolute;
-                    width: 450px;
+                    height: 100%;
                     bottom: 0;
                     filter: drop-shadow(-3px 6px 3px rgba(0, 0, 0, 0.288));
                 }
@@ -126,26 +126,26 @@
                 .party-logo {
                     display: flex;
                     align-items: center;
-                    height: 100px;
+                    height: 80px;
                     margin-bottom: 40px;
                     .party-logo-image {
                         height: 100%;
                     }
                     .party-logo-name {
                         text-transform: capitalize;
-                        font-size: 40px;
+                        font-size: 36px;
                         margin-left: 20px;
                     }
                     @media only screen and (max-width: 920px) { 
                         height: 60px;
                         .party-logo-name {
-                            font-size: 30px;  
+                            font-size: 28px;  
                         }
                     }
                     @media only screen and (max-width: 580px) { 
                         height: 50px;
                         .party-logo-name {
-                            font-size: 20px;  
+                            font-size: 24px;  
                         }
                     }
                 }

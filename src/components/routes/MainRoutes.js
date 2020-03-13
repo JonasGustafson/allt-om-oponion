@@ -9,8 +9,7 @@ class MainRoutes extends PureComponent {
     return (
       <Fragment>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route render={() => <Redirect to="/" />} />
+          <Route path="/" component={Home} />
         </Switch>
       </Fragment>
     )

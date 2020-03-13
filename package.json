@@ -1,8 +1,8 @@
 {
-  "homepage": "http://jonasgustafson.github.io/allt-om-oponion/",
   "name": "allt-om-oponion",
+  "homepage": "http://jonasgustafson.github.io/allt-om-oponion/",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
