@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/allt-om-oponion/precache-manifest.a5ac9fe4631a1d4cc2d1b478aa259fe2.js"
+  "/allt-om-oponion/precache-manifest.b35cc5b0f5d5b0ecf236c78a73341a4e.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3763126738dc019e5d5d0d5c9f8b5051",
+    "revision": "69114769fd07f1f39701ae61dc7ef1c7",
     "url": "/allt-om-oponion/index.html"
   },
   {
-    "revision": "1780ff7231d0f863cc29",
+    "revision": "88ab1da44a5b7de9542c",
     "url": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css"
   },
   {
-    "revision": "9215ccec326c6b83c0e9",
-    "url": "/allt-om-oponion/static/js/2.3ac8d5f4.chunk.js"
+    "revision": "a06cc34fd1a225b12dcf",
+    "url": "/allt-om-oponion/static/js/2.878c41ab.chunk.js"
   },
   {
     "revision": "f231859d6585c4cd5f80c344783ed269",
-    "url": "/allt-om-oponion/static/js/2.3ac8d5f4.chunk.js.LICENSE.txt"
+    "url": "/allt-om-oponion/static/js/2.878c41ab.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1780ff7231d0f863cc29",
-    "url": "/allt-om-oponion/static/js/main.9d8e568f.chunk.js"
+    "revision": "88ab1da44a5b7de9542c",
+    "url": "/allt-om-oponion/static/js/main.d70bbe56.chunk.js"
   },
   {
     "revision": "c50872f7106ce93d3ce6",
