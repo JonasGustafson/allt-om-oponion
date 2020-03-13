@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css",
+    "main.js": "/allt-om-oponion/static/js/main.9d8e568f.chunk.js",
+    "main.js.map": "/allt-om-oponion/static/js/main.9d8e568f.chunk.js.map",
+    "runtime-main.js": "/allt-om-oponion/static/js/runtime-main.5cb8ecac.js",
+    "runtime-main.js.map": "/allt-om-oponion/static/js/runtime-main.5cb8ecac.js.map",
+    "static/js/2.3ac8d5f4.chunk.js": "/allt-om-oponion/static/js/2.3ac8d5f4.chunk.js",
+    "static/js/2.3ac8d5f4.chunk.js.map": "/allt-om-oponion/static/js/2.3ac8d5f4.chunk.js.map",
+    "index.html": "/allt-om-oponion/index.html",
+    "precache-manifest.a5ac9fe4631a1d4cc2d1b478aa259fe2.js": "/allt-om-oponion/precache-manifest.a5ac9fe4631a1d4cc2d1b478aa259fe2.js",
+    "service-worker.js": "/allt-om-oponion/service-worker.js",
+    "static/css/main.ebe9d9e1.chunk.css.map": "/allt-om-oponion/static/css/main.ebe9d9e1.chunk.css.map",
+    "static/js/2.3ac8d5f4.chunk.js.LICENSE.txt": "/allt-om-oponion/static/js/2.3ac8d5f4.chunk.js.LICENSE.txt",
+    "static/media/sort-icon.svg": "/allt-om-oponion/static/media/sort-icon.81d5ab3b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5cb8ecac.js",
+    "static/js/2.3ac8d5f4.chunk.js",
+    "static/css/main.ebe9d9e1.chunk.css",
+    "static/js/main.9d8e568f.chunk.js"
+  ]
+}
