@@ -63,13 +63,19 @@ class NavBar extends PureComponent {
             <ul className={"party-list " + (this.state.partiesToggled? 'toggled': '')}>
               <div className={"party-list-wrapper " + (this.state.partiesToggled? 'toggled': '')}>
                 {Object.keys(this.props.parties).map(party => 
-                  <p key={party} style={{backgroundColor: this.props.parties[party].color}}>{party}</p>
+                  <p 
+                    key={party} 
+                    style={{backgroundColor: this.props.parties[party].color}}
+                    onClick={() => this.props.togglePartyModal(party)}>
+                      {party}
+                    </p>
                 )}
               </div>
             </ul>
           </li>
         </ul>
       </div>
+      
     )
   }
 }

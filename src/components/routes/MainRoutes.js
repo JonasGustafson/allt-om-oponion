@@ -9,7 +9,7 @@ class MainRoutes extends PureComponent {
     return (
       <Fragment>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" render={()=><Home togglePartyModal={this.props.togglePartyModal}/>}/>
         </Switch>
       </Fragment>
     )
