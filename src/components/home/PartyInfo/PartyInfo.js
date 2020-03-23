@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Icon from '../../../resources/icons/icon';
 
 import './PartyInfo.scss';
+import TimeChart from '../TimeChart/TimeChart';
 
 class PartyInfo extends Component {
 
@@ -83,17 +84,10 @@ class PartyInfo extends Component {
                         </div>
                         <div className="party-ideology" style={{backgroundColor: this.props.party.color}}>
                             <p className="party-ideology-header">
-                                Grundpelare
+                                Statistik
                             </p>
                             <div className="party-ideologies">
-                                {this.props.party.ideologies.map(ideology => 
-                                    <div className="party-ideology-section">
-                                        <Icon icon={ideology.icon} color="white" height='80px'/>
-                                        <p className="party-ideology-section-header">{ideology.title}</p>
-                                        <hr/>
-                                        <p className="party-ideology-section-text">{ideology.text}</p>
-                                    </div>   
-                                )}
+                                <TimeChart partyInitials={this.props.partyInitials}/>
                             </div>
                         </div>
                         <div className="party-statistics">
@@ -108,7 +102,8 @@ class PartyInfo extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        party: state.party.parties[ownProps.party]
+        party: state.party.parties[ownProps.party],
+        partyInitials: ownProps.party
     }
 }
 

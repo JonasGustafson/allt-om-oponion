@@ -63,7 +63,8 @@ class TimeChart extends PureComponent {
   prepareParties = () => {
     return new Promise((resolve) => {
 
-      const {parties} = this.props.party;
+      console.log(this.props.parties)
+      const parties = this.props.parties;
       const partyInitials =  Object.keys(parties)
 
       const percentages = partyInitials.reduce((obj, item) => {
@@ -101,9 +102,9 @@ class TimeChart extends PureComponent {
       let percentages = [];
 
       const parties = 
-        Object.keys(this.props.party.parties)
+        Object.keys(this.props.parties)
         .filter(partyInitials => this.state.activeParties.includes(partyInitials))
-        .map(partyInitials => this.props.party.parties[partyInitials])
+        .map(partyInitials => this.props.parties[partyInitials])
 
       parties.forEach(party => {
         const opinionPolls = 
@@ -140,7 +141,7 @@ class TimeChart extends PureComponent {
       let firstMonth = '';
       let lastMonth = '';
 
-      Object.values(this.props.party.parties).forEach(party => {
+      Object.values(this.props.parties).forEach(party => {
         Object.keys(party.opinionPolls).forEach((o, index) => {
           firstMonth = index === 0? o: (moment(o).isBefore(firstMonth)? o: firstMonth)
           lastMonth = index === 0? o: (moment(o).isAfter(lastMonth)? o: lastMonth)
@@ -195,8 +196,8 @@ class TimeChart extends PureComponent {
     
     const partyPercentages = {}
     
-    Object.keys(this.props.party.parties).forEach(partyInitial => {
-      partyPercentages[partyInitial] = this.props.party.parties[partyInitial].opinionPolls[month]
+    Object.keys(this.props.parties).forEach(partyInitial => {
+      partyPercentages[partyInitial] = this.props.parties[partyInitial].opinionPolls[month]
     })
 
     this.setState({
@@ -242,11 +243,14 @@ class TimeChart extends PureComponent {
   }
 
   createPartyPath = (partyInitials) => {
+
+    const onlyOneParty = this.props.partyInitials !== undefined;
+
     if (this.state.activeParties.includes(partyInitials) && this.state.readyToLoad) {
       
       const partyShownMonths = this.state.shownMonths
                               .map((month, index) => ({index: index, month: month}))
-                              .filter(m => Object.keys(this.props.party.parties[partyInitials].opinionPolls).includes(m.month))
+                              .filter(m => Object.keys(this.props.parties[partyInitials].opinionPolls).includes(m.month))
 
       const separatedPartyMonths = [];
       let index = 0
@@ -267,20 +271,20 @@ class TimeChart extends PureComponent {
         <circle 
             key={months[0].index}
             cx={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*months[0].index)}
-            cy={(400 - (this.props.party.parties[partyInitials].opinionPolls[months[0].month] - this.state.min)*this.state.ratio)}
+            cy={(400 - (this.props.parties[partyInitials].opinionPolls[months[0].month] - this.state.min)*this.state.ratio)}
             r="2"
-            opacity='0.6' 
-            fill={this.props.party.parties[partyInitials].color}/>
+            opacity={onlyOneParty? '1': '0.6'} 
+            fill={onlyOneParty ? 'white': this.props.parties[partyInitials].color}/>
         :
         <polyline 
             key={partyInitials + index}
-            className="path"
+            className={"path" + (onlyOneParty? ' only-one-party': '')}
             points={months.map((m) => {
-              const y = (400 - (this.props.party.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
+              const y = (400 - (this.props.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
               const x = ((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*m.index)
               return x + ' ' + y + ' ';
             })}
-            stroke={this.props.party.parties[partyInitials].color} 
+            stroke={onlyOneParty ? "white": this.props.parties[partyInitials].color} 
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"/>
@@ -290,16 +294,19 @@ class TimeChart extends PureComponent {
   }
 
   createIndicatorCircles = (partyInitials) => {
+
+    const onlyOneParty = this.props.partyInitials !== undefined;
+
     if (this.state.readyToLoad && this.state.activeParties.includes(partyInitials)) {
 
       const partyShownMonths = this.state.shownMonths
       .map((month, index) => ({index: index, month: month}))
-      .filter(m => Object.keys(this.props.party.parties[partyInitials].opinionPolls).includes(m.month))
+      .filter(m => Object.keys(this.props.parties[partyInitials].opinionPolls).includes(m.month))
 
       return partyShownMonths.map((m, index) => {
 
         const x = (this.state.viewPortWidth/(this.state.shownMonths.length - 1))*m.index;
-        const y = (400 - (this.props.party.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
+        const y = (400 - (this.props.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
         
         const isShown = this.state.lineOffset > x - this.state.viewPortWidth/(2*(this.state.shownMonths.length - 1)) && 
                         this.state.lineOffset < x + this.state.viewPortWidth/(2*(this.state.shownMonths.length - 1)) && 
@@ -308,11 +315,11 @@ class TimeChart extends PureComponent {
         return (
           <circle 
             key={m.month}
-            className={"indicator-circle" + (isShown? ' shown': '')}
+            className={"indicator-circle" + (isShown? ' shown': '') + (onlyOneParty? " only-one-party": "")}
             cx={x}
             cy={y} 
             r="7" 
-            fill={this.props.party.parties[partyInitials].color}
+            fill={this.props.parties[partyInitials].color}
             stroke="white" 
             strokeWidth="2"/>
         )
@@ -322,17 +329,20 @@ class TimeChart extends PureComponent {
   }
 
   createYearLines = (month, index) => {
+
+    const onlyOneParty = this.props.partyInitials !== undefined;
+
     return index === 0
       ? <React.Fragment key={month}>
           {
             month.endsWith('01')
             ? <React.Fragment>
-              <path d="M 1 400 L 1 415" stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
-              <text className="time-chart-year" x="0" y="415" writingMode='vertical-lr'>
+              <path d="M 1 400 L 1 415" stroke={onlyOneParty? "white": "lightgrey"} strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
+              <text className={"time-chart-year" + (onlyOneParty? " only-one-party": "")} x="0" y="415" writingMode='vertical-lr'>
                 {month.substring(0, 4)}
               </text>
               </React.Fragment>
-            : <path key={month} d="M 1 400 L 1 405" stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
+            : <path key={month} d="M 1 400 L 1 405" stroke={onlyOneParty? "white": "lightgrey"} strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
           }
         </React.Fragment>
       : <React.Fragment key={month}>
@@ -340,7 +350,7 @@ class TimeChart extends PureComponent {
             month.endsWith('01')
             ? <React.Fragment>
                 <path  d={"M "+((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5) +" 400 L "+((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)+" 415"} stroke="lightgrey" strokeWidth="1.0" fill="none" shapeRendering="crispEdges"/>
-                <text className="time-chart-year" x={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)} y="420" writingMode='vertical-lr'>
+                <text className={"time-chart-year" + (onlyOneParty? " only-one-party": "")} x={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*index - 0.5)} y="420" writingMode='vertical-lr'>
                   {month.substring(0, 4)}
                 </text>
               </React.Fragment>
@@ -350,6 +360,9 @@ class TimeChart extends PureComponent {
   } 
 
   createPercentageLines = () => {
+
+    const onlyOneParty = this.props.partyInitials !== undefined;
+
     let percentageSpans = [];
     let i = Math.ceil(this.state.min/this.state.percentageSpan)*this.state.percentageSpan;
 
@@ -365,14 +378,14 @@ class TimeChart extends PureComponent {
       let textXPosition = isSmallScreen? 5: -35
       return (
         <React.Fragment key={percentage}>
-          <text y={textYPosition} x={textXPosition} fontSize="12" opacity="0.3" fontWeight="100">
+          <text y={textYPosition} x={textXPosition} fontSize="12" fill={onlyOneParty? "white": "lightgrey"} opacity={onlyOneParty? "1": "0.8"} fontWeight="100">
             {percentage}%
           </text>
           <polyline 
             points={"-5 "+relativeYPercentage+" "+this.state.viewPortWidth+" "+relativeYPercentage} 
             strokeWidth="0.5" 
-            stroke="black"
-            opacity="0.15" 
+            stroke={onlyOneParty? "white": "lightgrey"}
+            opacity={onlyOneParty? "1":"0.3"} 
             shapeRendering="crispEdges"/>
         </React.Fragment>
       )
@@ -380,6 +393,9 @@ class TimeChart extends PureComponent {
   }
     
   render() {
+
+      const onlyOneParty = this.props.partyInitials !== undefined;
+
       return this.state.readyToLoad? (
           <div className="time-chart-wrapper">
             <div className="time-chart-filter" style={{width: this.state.viewPortWidth+'px'}}>
@@ -399,14 +415,15 @@ class TimeChart extends PureComponent {
                 select={this.filterMonths}
                 />
                 </div>
-              <div className="party-colors"> 
-                { Object.keys(this.props.party.parties).map(party => 
-                  <div key={party} className={"party-color-wrapper" + (this.state.activeParties.includes(party)? " active": '')} onClick={() => this.toggleParty(party)}>
-                    <img className="party-logo" src={this.props.party.parties[party].logo} alt="party-logo"/>
-                   
-                  </div>
-                )}
-              </div>
+              { !onlyOneParty &&
+                <div className="party-colors"> 
+                  { Object.keys(this.props.parties).map(party => 
+                    <div key={party} className={"party-color-wrapper" + (this.state.activeParties.includes(party)? " active": '')} onClick={() => this.toggleParty(party)}>
+                      <img className="party-logo" src={this.props.parties[party].logo} alt="party-logo"/>
+                    </div>
+                  )}
+                </div>
+              }
             </div>
             <div className="time-chart">
               <svg 
@@ -417,25 +434,25 @@ class TimeChart extends PureComponent {
                 onClick={this.toggleMonthInfo} 
                 style={{width: this.state.viewPortWidth, height: '450px'}}>
 
-                <path d={"M 1 0 L 1 400 L "+(this.state.viewPortWidth) +" 400"} stroke="lightgrey" strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
+                <path d={"M 1 0 L 1 400 L "+(this.state.viewPortWidth) +" 400"} stroke={onlyOneParty? "white": "lightgrey"} strokeWidth="1" fill="none" shapeRendering="crispEdges"/>
                 {this.createPercentageLines()}
-                {Object.keys(this.props.party.parties).map(this.createPartyPath)}
+                {Object.keys(this.props.parties).filter(party => onlyOneParty ? party === this.props.partyInitials: true).map(this.createPartyPath)}
                 {this.state.shownMonths.map(this.createYearLines)}
-                {Object.keys(this.props.party.parties).map(this.createIndicatorCircles)}
+                {Object.keys(this.props.parties).map(this.createIndicatorCircles)}
                 {this.state.indicatorShown &&
-                  <path className="indicator-path" d={"M "+this.state.lineOffset+" 0 L "+this.state.lineOffset+" 400"} stroke="grey" strokeWidth="2" shapeRendering="crispEdges"/>
+                  <path className="indicator-path" d={"M "+this.state.lineOffset+" 0 L "+this.state.lineOffset+" 400"} stroke={onlyOneParty? "white": "grey"} strokeWidth="2" shapeRendering="crispEdges"/>
                 }
               </svg>
               {this.state.indicatorShown &&
                 <div className="month-info"> 
                   <p className="current-month">{helper.convertYearMonth(this.state.currentMonth)}</p>
                   <hr/>
-                  {Object.keys(this.props.party.parties)
+                  {Object.keys(this.props.parties)
                    .sort((a, b) => this.state.currentPercentages[b] - this.state.currentPercentages[a])
                    .map(partyInitials => this.state.activeParties.includes(partyInitials) && !isNaN(this.state.currentPercentages[partyInitials])? 
-                    <div key={this.props.party.parties[partyInitials].name} className="party-name-and-percent">
-                      <div className="party-color" style={{backgroundColor: this.props.party.parties[partyInitials].color}}/>
-                      <p className="party-name">{this.props.party.parties[partyInitials].name}:</p>
+                    <div key={this.props.parties[partyInitials].name} className="party-name-and-percent">
+                      <div className="party-color" style={{backgroundColor: this.props.parties[partyInitials].color}}/>
+                      <p className="party-name">{this.props.parties[partyInitials].name}:</p>
                       <p className="party-percent">
                         {(Math.round(this.state.currentPercentages[partyInitials] * 100) / 100).toFixed(1)}%
                       </p>
@@ -450,10 +467,18 @@ class TimeChart extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    party: state.party,
-  }
+const mapStateToProps = (state, ownProps) => {
+  const onlyOneParty = ownProps.partyInitials !== undefined
+
+  const parties = onlyOneParty 
+  ? Object.keys(state.party.parties)
+      .filter(key => key === ownProps.partyInitials)
+      .reduce((obj, key) => {
+        obj[key] = state.party.parties[key];
+        return obj
+      }, {})
+  : state.party.parties
+  return { parties }
 }
 
 export default connect(mapStateToProps)(TimeChart);

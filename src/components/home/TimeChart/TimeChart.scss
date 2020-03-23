@@ -29,6 +29,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: 50%;
+                background-color: white;
                 box-sizing: border-box;
                 cursor: pointer;
                 width: 42px;
@@ -68,7 +69,9 @@
                 animation: animatePath 2s linear forwards;
                 opacity: 0.6;
                 pointer-events: none;
-                
+                &.only-one-party {
+                    opacity: 1;
+                }
             }
             .indicator-path {
                 pointer-events: none;
@@ -79,6 +82,9 @@
                 fill: lightgrey;
                 pointer-events: none;
                 user-select: none;
+                &.only-one-party {
+                    fill: white;
+                }
             }
             .indicator-circle {
                 pointer-events: none;
@@ -86,6 +92,11 @@
                 transition: opactiy 0.3s;
                 &.shown {
                     opacity: 0.6;
+                }
+                &.only-one-party {
+                    &.shown {
+                        opacity: 1;
+                    }
                 }
             }
         }
