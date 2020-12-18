@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
+
 import MainRoutes from './routes/MainRoutes';
 import NavBar from './navigation/NavBar/NavBar/NavBar';
 import PartyInfo from './home/PartyInfo/PartyInfo';
+import CookieHandler from './widgets/CookieHandler/CookieHandler';
+import Footer from './footer/Footer';
+
 
 class App extends Component {
 
@@ -29,15 +33,15 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <NavBar togglePartyModal={this.togglePartyModal}/>
+        <CookieHandler />
+        {/* <NavBar togglePartyModal={this.togglePartyModal}/> */}
         <MainRoutes togglePartyModal={this.togglePartyModal}/>
-       
-        <div style={{height: '1000px'}}></div>
         { this.state.partyModalOpen &&
           <PartyInfo 
             party={this.state.partyInModal} 
             togglePartyModal={this.togglePartyModal}/>
         }
+        <Footer />
       </div>
     );
   }

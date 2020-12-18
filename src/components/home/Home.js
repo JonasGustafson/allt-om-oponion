@@ -4,6 +4,7 @@ import Hero from './Hero/Hero';
 import TimeChart from './TimeChart/TimeChart';
 
 import './Home.scss';
+import Contact from '../contact/Contact';
 
 class Home extends PureComponent {
 
@@ -11,7 +12,8 @@ class Home extends PureComponent {
 		return (
 			<div className="home-page">
 				<Hero togglePartyModal={this.props.togglePartyModal}/>
-        <TimeChart />
+        		<TimeChart />
+				<Contact />
         
 			</div>
 		)

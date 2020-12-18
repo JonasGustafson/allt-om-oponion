@@ -1,0 +1,35 @@
+.radio-button {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    cursor: pointer;
+    margin-bottom: 5px;
+    .radio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5px;
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, 1);
+        .selection-indicator {
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            display: none;
+        }
+        
+    }
+    &.selected {
+        .radio {
+            background-color: #866752;
+            .selection-indicator {
+                display: block;
+            }
+        }
+    }
+}

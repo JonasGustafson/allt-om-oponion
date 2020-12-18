@@ -1,0 +1,128 @@
+.party-chart-filter-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 calc(10% + 20px);
+    margin-top: 20px;
+    
+    .party-chart-filter-toggler {
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2px;
+        box-sizing: border-box;
+        width: 200px;
+        height: 40px;
+        background-color: #b9a995;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 15px;
+        transition: border-radius 0s 0.5s;
+        overflow: hidden;
+        p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        &:hover {
+            &::before {
+                z-index: 0;
+                position: absolute;
+                content: '';
+                top: 0; left: 0; right: 0; bottom: 0;
+                background-color: #96846e;
+            }
+        }
+        
+        &.active {
+            transition: border-radius 0s 0.05s, background-color 0.3s 0.6s;
+            border-radius: 0 0 5px 5px;
+            background-color: #ac9a84;
+        }
+    }
+    .party-chart-filter {
+        display: flex;
+
+        box-shadow: inset 0 0 2px black;
+        height: 40px;
+        width: 200px;
+        border-radius: 10px;
+        transition: transform 0.3s;
+        transform-origin: top;
+        background-color: #b9a995c7;
+        animation: hideFilter 0s forwards;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        padding-top: 40px;
+        user-select: none;
+        overflow: hidden;
+        &.hidden {
+            animation: hideFilter 0.7s forwards;
+        }
+        &.toggled {
+            animation: showFilter 0.7s forwards;
+        }
+        .filter-section {
+            width: 300px;
+            margin: 20px 40px;
+            .header {
+                font-size: 18px;
+                text-align: left;
+                font-weight: bold;
+                color: white;
+                
+            }
+            .checkbox-wrapper {
+                margin: 10px 0;
+                cursor: pointer;
+            }
+            .radio-button {
+                margin: 10px 0;
+            }
+            .selector {
+                margin: 10px 0;
+                ul {
+                    height: 100px;
+                }
+            }
+            
+        }
+        
+        @keyframes showFilter {
+            0% {
+                width: 200px;
+                height: 40px;
+            }
+            50% {
+                width: 100%;
+                height: 40px;
+            }
+            100% {
+                width: 100%;
+                height: 360px;
+            }
+        }
+        @keyframes hideFilter {
+            0% {
+                width: 100%;
+                height: 360px;
+            }
+            50% {
+                width: 100%;
+                height: 40px;
+            }
+            100% {
+                width: 200px;
+                height: 40px;
+            }
+        }
+    }
+}
+

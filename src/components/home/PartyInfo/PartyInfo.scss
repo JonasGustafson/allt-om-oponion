@@ -38,7 +38,7 @@
             height: 40px;
             width: 40px;
             opacity: 0;
-            background-color: white;
+            background-color: linear-gradient(80deg, #c4b39e, #ffefdf);
             animation: fadeIn 0.4s 0.5s forwards;
             cursor: pointer;
             @keyframes fadeIn {
@@ -50,7 +50,7 @@
         .party-info-container {
             width: 100%;
             height: 100%;
-            background-color: white;
+            background: linear-gradient(80deg, #c4b39e, #ffefdf);
             border-radius: 5px;
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.315);
             box-sizing: border-box;
@@ -113,7 +113,7 @@
                 width: calc(100% - 500px);
                 display: flex;
                 flex-direction: column;
-                background-color: rgba(255, 255, 255, 0.733);
+                background: linear-gradient(80deg, rgba(195, 178, 157, 0.7), rgba(255, 239, 223, 0.7));
                 @media only screen and (max-width: 1170px) { 
                     width: calc(100% - 250px);
                 }

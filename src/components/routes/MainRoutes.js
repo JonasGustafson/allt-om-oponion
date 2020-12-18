@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Home from '../home/Home';
+import Privacy from '../privacy/Privacy';
 
 class MainRoutes extends PureComponent {
   state = {}
@@ -9,7 +10,8 @@ class MainRoutes extends PureComponent {
     return (
       <Fragment>
         <Switch>
-          <Route path="/" render={()=><Home togglePartyModal={this.props.togglePartyModal}/>}/>
+          <Route exact path="/" render={()=><Home togglePartyModal={this.props.togglePartyModal}/>}/>
+          <Route path="/privacy" component={Privacy}/>
         </Switch>
       </Fragment>
     )

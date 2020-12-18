@@ -8,28 +8,36 @@
     width: 150px;
     height: 40px;
     user-select: none;
-    color: black;
+    color: white;
     font: $font-body-regular;
     font-weight: lighter;
     margin: 5px;
     cursor: pointer;
+    
+    &::before {
+        height: 15px;
+        bottom: 0;
+        transform: translateY(100%);
+        width: 100%;
+        content: '';
+        position: absolute;
+    }
     .choice {
         display: flex;
         align-items: center;
-        padding-left: 4px;
+        padding-left: 10px;
         font-size: 14px;
         height: 100%;
         width: 100%;
-        border-radius: 3px;
-        background-color: white;
-        border: 1px solid rgb(168, 168, 168);
+        border-radius: 5px;
+        background-color: #866752;
+        text-transform: capitalize;
     }
     .sort-icon {
         position: absolute;
-        right: 0;
-        height: 40%;
-        opacity: 0.4;
-        transform: scaleX(0.5);
+        right: 10px;
+        height: 15%;
+        opacity: 1;
     }
     ul {
         color: black;
@@ -37,10 +45,9 @@
         z-index: 3;
         max-height: 200px;
         overflow: scroll;
-        border-radius: 0 0 3px 3px;
-        border: 1px solid rgb(168, 168, 168);
+        border-radius: 5px;
         box-sizing: border-box;
-        background-color: rgb(255, 255, 255);
+        background-color: #866752;
         position: absolute;
         top: 40px;
         left: 0;
@@ -50,30 +57,37 @@
         border-top: none;
         transform-origin: top;
         animation: slideDownSelector 0.3s forwards;
+        box-shadow: 0px 2px 2px black;
+        .arrow {
+            height: 10px;
+            width: 10px;
+            background-color: #866752;
+            transform: translate(20px, -50%) rotate(45deg); 
+            position: absolute;
+            top: 0;
+        }
         li {
+            color: white;
+            text-transform: capitalize;
             display: flex;
             align-items: center;
             height: 40px;
-            padding-left: 4px;
+            padding-left: 10px;
             list-style: none;
             cursor: pointer;
             opacity: 0;
             animation: fadeInChoices 0.3s 0.3s forwards;
             &:hover {
-                background-color: rgb(222, 231, 247);
+                background-color: #a78b79;
             }
         }
     }
-    &:hover {
-        .sort-icon {
-            opacity: 0.7;
-        }
-    }
+
     @keyframes slideDownSelector {
         from {
-            transform: scaleY(0)
+            transform: translateY(5%) scaleY(0)
         } to {
-            transform: scaleY(1);
+            transform: translateY(5%) scaleY(1);
         }
     }
     @keyframes fadeInChoices {

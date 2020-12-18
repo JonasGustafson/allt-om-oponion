@@ -4,11 +4,13 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 import 'moment/locale/sv';
 
+import RadioButtonList from '../../widgets/RadioButtonList/RadioButtonList';
+import RadioButton from '../../widgets/RadioButton/RadioButton';
 import Selector from '../../widgets/Selector/Selector/Selector';
 
-import * as helper from '../../../utils/Helper';
 
 import './TimeChart.scss';
+
 
 if (moment) {
   moment.locale("sv");
@@ -32,6 +34,11 @@ class TimeChart extends PureComponent {
     max: 0,
     ratio: 0,
     readyToLoad: false,
+    chartTypes: [
+      'opinionsundersökningar',
+      'riksdagsval'
+    ],
+    currentChart: 'opinionsundersökningar',
   }
 
   componentDidMount = () => {
@@ -43,6 +50,10 @@ class TimeChart extends PureComponent {
     .then(this.setPercentageRatio)
     .then(this.setTimeSpan)
     .then(this.setReadyToLoad)
+  }
+
+  setCurrentChart = (chartType) => {
+    this.setState({currentChart: chartType})
   }
 
   setResizeListener = () => {
@@ -63,7 +74,6 @@ class TimeChart extends PureComponent {
   prepareParties = () => {
     return new Promise((resolve) => {
 
-      console.log(this.props.parties)
       const parties = this.props.parties;
       const partyInitials =  Object.keys(parties)
 
@@ -78,7 +88,6 @@ class TimeChart extends PureComponent {
         activeParties: partyInitials
       }, resolve)
     })
-
   }
 
   setTimeSpan = () => {
@@ -108,11 +117,11 @@ class TimeChart extends PureComponent {
 
       parties.forEach(party => {
         const opinionPolls = 
-          Object.keys(party.opinionPolls)
+          Object.keys(party['opinionsundersökningar'])
           .filter(poll => 
             moment(poll).isSameOrAfter(moment(this.state.fromMonth)) && 
             moment(poll).isSameOrBefore(moment(this.state.toMonth)))
-          .map(poll => party.opinionPolls[poll])
+          .map(poll => party['opinionsundersökningar'][poll])
             
         percentages = [...percentages, ...opinionPolls]
       })
@@ -142,7 +151,7 @@ class TimeChart extends PureComponent {
       let lastMonth = '';
 
       Object.values(this.props.parties).forEach(party => {
-        Object.keys(party.opinionPolls).forEach((o, index) => {
+        Object.keys(party['opinionsundersökningar']).forEach((o, index) => {
           firstMonth = index === 0? o: (moment(o).isBefore(firstMonth)? o: firstMonth)
           lastMonth = index === 0? o: (moment(o).isAfter(lastMonth)? o: lastMonth)
         })
@@ -154,7 +163,7 @@ class TimeChart extends PureComponent {
       let months = Array(nrOfMonths).fill(null).map(() => {
         const month = monthIterator.format("YYYY-MM")
         monthIterator.add(1, 'month')
-        return month; 
+        return month.toString(); 
       })
       
       this.setState({
@@ -197,7 +206,7 @@ class TimeChart extends PureComponent {
     const partyPercentages = {}
     
     Object.keys(this.props.parties).forEach(partyInitial => {
-      partyPercentages[partyInitial] = this.props.parties[partyInitial].opinionPolls[month]
+      partyPercentages[partyInitial] = this.props.parties[partyInitial]['opinionsundersökningar'][month]
     })
 
     this.setState({
@@ -250,7 +259,7 @@ class TimeChart extends PureComponent {
       
       const partyShownMonths = this.state.shownMonths
                               .map((month, index) => ({index: index, month: month}))
-                              .filter(m => Object.keys(this.props.parties[partyInitials].opinionPolls).includes(m.month))
+                              .filter(m => Object.keys(this.props.parties[partyInitials]['opinionsundersökningar']).includes(m.month))
 
       const separatedPartyMonths = [];
       let index = 0
@@ -271,7 +280,7 @@ class TimeChart extends PureComponent {
         <circle 
             key={months[0].index}
             cx={((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*months[0].index)}
-            cy={(400 - (this.props.parties[partyInitials].opinionPolls[months[0].month] - this.state.min)*this.state.ratio)}
+            cy={(400 - (this.props.parties[partyInitials]['opinionsundersökningar'][months[0].month] - this.state.min)*this.state.ratio)}
             r="2"
             opacity={onlyOneParty? '1': '0.6'} 
             fill={onlyOneParty ? 'white': this.props.parties[partyInitials].color}/>
@@ -280,7 +289,7 @@ class TimeChart extends PureComponent {
             key={partyInitials + index}
             className={"path" + (onlyOneParty? ' only-one-party': '')}
             points={months.map((m) => {
-              const y = (400 - (this.props.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
+              const y = (400 - (this.props.parties[partyInitials]['opinionsundersökningar'][m.month] - this.state.min)*this.state.ratio)
               const x = ((this.state.viewPortWidth/(this.state.shownMonths.length - 1))*m.index)
               return x + ' ' + y + ' ';
             })}
@@ -301,12 +310,12 @@ class TimeChart extends PureComponent {
 
       const partyShownMonths = this.state.shownMonths
       .map((month, index) => ({index: index, month: month}))
-      .filter(m => Object.keys(this.props.parties[partyInitials].opinionPolls).includes(m.month))
+      .filter(m => Object.keys(this.props.parties[partyInitials]['opinionsundersökningar']).includes(m.month))
 
       return partyShownMonths.map((m, index) => {
 
         const x = (this.state.viewPortWidth/(this.state.shownMonths.length - 1))*m.index;
-        const y = (400 - (this.props.parties[partyInitials].opinionPolls[m.month] - this.state.min)*this.state.ratio)
+        const y = (400 - (this.props.parties[partyInitials]['opinionsundersökningar'][m.month] - this.state.min)*this.state.ratio)
         
         const isShown = this.state.lineOffset > x - this.state.viewPortWidth/(2*(this.state.shownMonths.length - 1)) && 
                         this.state.lineOffset < x + this.state.viewPortWidth/(2*(this.state.shownMonths.length - 1)) && 
@@ -399,22 +408,30 @@ class TimeChart extends PureComponent {
       return this.state.readyToLoad? (
           <div className="time-chart-wrapper">
             <div className="time-chart-filter" style={{width: this.state.viewPortWidth+'px'}}>
-              <div className="time-filter">
-              <Selector 
-                options={this.state.availableMonths.filter(month => moment(month).isBefore(moment(this.state.toMonth))).reverse()} 
-                choice={this.state.fromMonth}
-                name={"fromMonth"}
-                prefix={'Från'}
-                select={this.filterMonths}
-                />
-              <Selector 
-                options={this.state.availableMonths.filter(month => moment(month).isAfter(moment(this.state.fromMonth))).reverse()} 
-                choice={this.state.toMonth}
-                name="toMonth"
-                prefix={'Till'}
-                select={this.filterMonths}
-                />
+              <div className="time-chart-type-filter">
+                <div className="time-filter">
+                  <Selector 
+                    options={this.state.availableMonths.filter(month => moment(month).isBefore(moment(this.state.toMonth))).reverse()} 
+                    choice={this.state.fromMonth}
+                    name={"fromMonth"}
+                    prefix={'Från'}
+                    select={this.filterMonths}/>
+                  <Selector 
+                    options={this.state.availableMonths.filter(month => moment(month).isAfter(moment(this.state.fromMonth))).reverse()} 
+                    choice={this.state.toMonth}
+                    name="toMonth"
+                    prefix={'Till'}
+                    select={this.filterMonths}/>
                 </div>
+                <RadioButtonList onChoice={this.setCurrentChart}>
+                  {
+                    this.state.chartTypes.map(type => 
+                      <RadioButton key={type} name={type} label={''}/>
+                    )
+                  }
+                </RadioButtonList>
+                  
+              </div>
               { !onlyOneParty &&
                 <div className="party-colors"> 
                   { Object.keys(this.props.parties).map(party => 
@@ -445,7 +462,7 @@ class TimeChart extends PureComponent {
               </svg>
               {this.state.indicatorShown &&
                 <div className="month-info"> 
-                  <p className="current-month">{helper.convertYearMonth(this.state.currentMonth)}</p>
+                  <p className="current-month">{this.state.currentMonth}</p>
                   <hr/>
                   {Object.keys(this.props.parties)
                    .sort((a, b) => this.state.currentPercentages[b] - this.state.currentPercentages[a])

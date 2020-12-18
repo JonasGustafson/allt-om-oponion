@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import ReactGA from 'react-ga';
 
 import Icon from '../../../resources/icons/icon';
 
@@ -75,8 +76,8 @@ class PartyInfo extends Component {
                                     
                                 </div>
                                 <div className="party-links">
-                                <a className="member-button" href={this.props.party.homepage} target="_blank" rel="noopener noreferrer" style={{backgroundColor: this.props.party.color}}>Hemsida</a>
-                                <a className="member-button" href={this.props.party.register_url} target="_blank" rel="noopener noreferrer" style={{backgroundColor: this.props.party.color}}>Bli Medlem</a>
+                                    <a className="member-button" onClick={() => ReactGA.event({category: 'Party Homepage', action: this.props.party.name})} href={this.props.party.homepage} target="_blank" rel="noopener noreferrer" style={{backgroundColor: this.props.party.color}}>Hemsida</a>
+                                    <a className="member-button" onClick={() => ReactGA.event({category: 'Party Member', action: this.props.party.name})} href={this.props.party.register_url} target="_blank" rel="noopener noreferrer" style={{backgroundColor: this.props.party.color}}>Bli Medlem</a>
                                 </div>
                                 
                             </div>

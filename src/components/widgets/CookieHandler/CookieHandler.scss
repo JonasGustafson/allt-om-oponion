@@ -1,0 +1,55 @@
+.cookie-handler {
+    position: fixed;
+    height: 250px;
+    width: 100vw;
+    max-width: 600px;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 105%);
+    background-color: white;
+    z-index: 100;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 3px 3px 10px  rgba(0, 0, 0, 0.452);
+    overflow: hidden;
+
+    h2 {
+        background: rgb(89, 190, 89);
+        color: white;
+        padding: 20px 30px;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    p {
+        padding: 10px 30px;
+    }
+    &.cookies-not-accepted {
+        animation: popUp 0.4s 1s forwards;
+        @keyframes popUp {
+            from {
+                transform: translate(-50%, 105%);
+            } to {
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+    button {
+        border: none;
+        background-color: rgb(89, 190, 89);
+        position: absolute;
+        bottom: 40px;
+        right: 30px;
+        height: 40px;
+        width: 130px;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        &:hover {
+            background-color: rgb(38, 116, 38);
+            
+        }
+    }
+}
